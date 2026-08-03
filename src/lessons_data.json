@@ -1,0 +1,1854 @@
+[
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 1",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "1.1",
+        "content": "<p><strong>පාඩම 1</strong></p><p><strong>ක්ෂුද්‍ර ජීවීන්ගේ භාවිත</strong></p><p>(Microorganisms and Their Uses)</p><p>9 ශ්‍රේණිය - විද්‍යාව | Grade 9 Science — Book 1</p><p>──────────────────────────────────────────────────</p><p><img src=\"/lesson_images/Lesson 1/1.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.1/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.1/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "1.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "1.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 1/1.2/img_1.jpg\"></p>",
+        "quiz": {
+          "title": "1.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "1.3.1",
+        "content": "<p>──────────────────────────────────────────────────</p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_5.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_6.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.1/img_7.jpg\"></p>",
+        "quiz": {
+          "title": "1.3.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "1.3.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 1/1.3.2/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.2/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.2/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 1/1.3.2/img_4.jpg\"></p>",
+        "quiz": {
+          "title": "1.3.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "lesson 1 final MCQ",
+      "questions": [
+        {
+          "question": "ක්ෂුද්‍ර ජීවීන් යනු කවුද?",
+          "options": {
+            "A": "පියවි ඇසට පමණක් පෙනෙන ජීවීන්",
+            "B": "පියවි ඇසට පැහැදිලිව නොපෙනෙන, අන්වීක්ෂයකින් බැලිය යුතු ජීවීන්",
+            "C": "ශාක පත්‍ර මත පමණක් ජීවත් වන ජීවීන්",
+            "D": "පියවි ඇසට පෙනෙන කුඩා කෘමීන්"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "බැක්ටීරියා (Bacteria) වල දේහ ස්වභාවය කෙබඳුද?",
+          "options": {
+            "A": "බහුසෛලික වේ",
+            "B": "ඒකසෛලික සහ අන්වීක්ෂීය වේ",
+            "C": "සෛලීය සංවිධානයක් නැත",
+            "D": "ඉලෙක්ට්‍රෝන අන්වීක්ෂයෙන් පමණක් පෙනේ"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "\"මියුකර්\" (Mucor) අයත් වන ක්ෂුද්‍ර ජීවී කාණ්ඩය කුමක්ද?",
+          "options": {
+            "A": "ඇල්ගී",
+            "B": "ප්‍රෝටොසෝවා",
+            "C": "දිලීර",
+            "D": "බැක්ටීරියා"
+          },
+          "correctOption": "C"
+        },
+        {
+          "question": "ක්ලැමිඩොමොනාස් (Chlamydomonas) අයත් වන්නේ කුමන කාණ්ඩයටද?",
+          "options": {
+            "A": "වෛරස්",
+            "B": "දිලීර",
+            "C": "ඇල්ගී",
+            "D": "බැක්ටීරියා"
+          },
+          "correctOption": "C"
+        },
+        {
+          "question": "ක්ෂුද්‍ර ජීවීන් ජීවත් නොවන ස්ථානයක් තෝරන්න.",
+          "options": {
+            "A": "පස සහ ජලය",
+            "B": "වාතය",
+            "C": "සතුන්ගේ සහ ශාකවල දේහ තුළ",
+            "D": "සෑම තැනම ජීවත් වේ"
+          },
+          "correctOption": "D"
+        },
+        {
+          "question": "විනාකිරි නිෂ්පාදනයේදී මධ්‍යසාර ඇසිටික් අම්ලය බවට පත් කරන්නේ කුමන බැක්ටීරියාවද?",
+          "options": {
+            "A": "Lactobacillus",
+            "B": "Rhizobium",
+            "C": "Acetobacter aceti",
+            "D": "Saccharomyces"
+          },
+          "correctOption": "C"
+        },
+        {
+          "question": "\"රන්වන් සහල්\" (Golden Rice) නිෂ්පාදනය සඳහා භාවිතා කළ බැක්ටීරියාව කුමක්ද?",
+          "options": {
+            "A": "Erwinia uredovora",
+            "B": "Bacillus anthracis",
+            "C": "Methanococcus",
+            "D": "Vibrio cholerae"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "කොම්පෝස්ට් පොහොර සෑදීමේදී කාබනික ද්‍රව්‍ය වියෝජනය කිරීමට දායක වන්නේ කවුද?",
+          "options": {
+            "A": "වෛරස් පමණි",
+            "B": "දිලීර සහ බැක්ටීරියා",
+            "C": "ඇල්ගී පමණි",
+            "D": "ප්‍රෝටොසෝවා"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "\"ජෛව පොහොර\" (Bio-fertilizer) ලෙස හැඳින්විය හැක්කේ මින් කුමක්ද?",
+          "options": {
+            "A": "යූරියා",
+            "B": "ඇසටොබැක්ටර් (Azotobacter)",
+            "C": "රසායනික නයිට්‍රජන්",
+            "D": "පළිබෝධනාශක"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "ප්‍රතිජීවක (Antibiotics) මගින් විනාශ කළ හැක්කේ කුමන ජීවීන් ද?",
+          "options": {
+            "A": "වෛරස් පමණි",
+            "B": "බැක්ටීරියා හෝ දිලීර",
+            "C": "සියලුම ක්ෂුද්‍ර ජීවීන්",
+            "D": "ඇල්ගී පමණි"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "ජාන ඉංජිනේරු තාක්ෂණයෙන් හෙපටයිටිස් B සඳහා එන්නත් නිපදවන්නේ කුමන කොටස් භාවිතා කරද?",
+          "options": {
+            "A": "බැක්ටීරියා සෛල",
+            "B": "ක්ෂුද්‍ර ජීවී දේහ කොටස් සහ ජාන",
+            "C": "සර්ප විෂ",
+            "D": "රසායනික ද්‍රව්‍ය පමණි"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "යෝගට් නිෂ්පාදනයේදී කිරි රත් කරන්නේ කුමන උෂ්ණත්වයකටද?",
+          "options": {
+            "A": "100 °C",
+            "B": "88 °C - 95 °C",
+            "C": "40 °C - 45 °C",
+            "D": "0 °C"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "පොල් කෙඳි වෙන් කරගැනීමට (Retting) උදව් වන බැක්ටීරියාවක් වන්නේ?",
+          "options": {
+            "A": "Bacillus corchorus",
+            "B": "Streptococcus",
+            "C": "Methanobacterium",
+            "D": "HIV"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "ජෛව ප්‍රතිකර්මණය (Bioremediation) යනු කුමක්ද?",
+          "options": {
+            "A": "රෝග සුව කිරීමට බෙහෙත් දීම",
+            "B": "ක්ෂුද්‍ර ජීවීන් යොදාගෙන පරිසර දූෂක ඉවත් කිරීම",
+            "C": "වගාවන්ට පොහොර දැමීම",
+            "D": "රසායනික ආයුධ නිපදවීම"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "\"ඇන්ත්‍රැක්ස්\" (Anthrax) රෝගය ඇති කරන ක්ෂුද්‍ර ජීවියා කවුද?",
+          "options": {
+            "A": "වෛරසයක්",
+            "B": "බැක්ටීරියාවක් (Bacillus anthracis)",
+            "C": "ප්‍රෝටොසෝවාවක්",
+            "D": "දිලීරයක්"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "මැලේරියාව (Malaria) රෝගය පතුරවන වාහකයා කවුද?",
+          "options": {
+            "A": "මැස්සා",
+            "B": "මීයා",
+            "C": "ඇනෝෆිලීස් මදුරුවා",
+            "D": "වැලි මැස්සා"
+          },
+          "correctOption": "C"
+        },
+        {
+          "question": "ඒඩ්ස් (AIDS) රෝගය ඇති කරන්නේ කුමන වෛරසය මගින්ද?",
+          "options": {
+            "A": "ඩෙංගු වෛරසය",
+            "B": "එබෝලා වෛරසය",
+            "C": "HIV වෛරසය",
+            "D": "ඉන්ෆ්ලුවෙන්සා වෛරසය"
+          },
+          "correctOption": "C"
+        },
+        {
+          "question": "ශාක පත්‍ර වල \"පිටිපුස්\" රෝගය ඇති කරන්නේ කුමන ක්ෂුද්‍ර ජීවී කාණ්ඩයද?",
+          "options": {
+            "A": "බැක්ටීරියා",
+            "B": "ඇල්ගී",
+            "C": "දිලීර",
+            "D": "වෛරස්"
+          },
+          "correctOption": "C"
+        },
+        {
+          "question": "ආහාර මත \"දුර්ගන්ධයක්\" ඇති වීම කුමන විපර්යාසයක් ලෙස සැලකේද?",
+          "options": {
+            "A": "භෞතික විපර්යාසයකි",
+            "B": "රසායනික විපර්යාසයකි",
+            "C": "යාන්ත්‍රික විපර්යාසයකි",
+            "D": "කිසිවක් නොවේ"
+          },
+          "correctOption": "B"
+        },
+        {
+          "question": "ප්‍රතිධූලක (Antitoxins) නිපදවනු ලබන්නේ කුමක් සඳහාද?",
+          "options": {
+            "A": "ආහාර රස කිරීමට",
+            "B": "බැක්ටීරියා පිට කරන විෂ ද්‍රව්‍ය උදාසීන කිරීමට",
+            "C": "ශාක වර්ධනයට",
+            "D": "ඇල්ගී විනාශ කිරීමට"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:01.007Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 2",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "2.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 2/2.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.1/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.1/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.1/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.1/img_5.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.1/img_6.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.1/img_7.jpg\"></p><p>****</p>",
+        "quiz": {
+          "title": "2.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "2.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 2/2.2/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.2/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.2/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.2/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.2/img_5.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.2/img_6.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.2/img_7.jpg\"></p>",
+        "quiz": {
+          "title": "2.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "2.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 2/2.3/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.3/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.3/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "2.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "2.4",
+        "content": "<p><img src=\"/lesson_images/Lesson 2/2.4/img_1.jpg\"><img src=\"/lesson_images/Lesson 2/2.4/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.4/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "2.4 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "2.5",
+        "content": "<p><img src=\"/lesson_images/Lesson 2/2.5/img_1.jpg\"><img src=\"/lesson_images/Lesson 2/2.5/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 2/2.5/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "2.5 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 2 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:01.842Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 3",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "3.1.1",
+        "content": "<p>──────────────────────────────────────────────────</p><p><img src=\"/lesson_images/Lesson 3/3.1.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.1.1/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.1.1/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "3.1.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "3.1.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 3/3.1.2/img_1.jpg\"></p>",
+        "quiz": {
+          "title": "3.1.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "3.1.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 3/3.1.3/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.1.3/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "3.1.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "3.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 3/3.2/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.2/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "3.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "3.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 3/3.3/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.3/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.3/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 3/3.3/img_4.jpg\"></p>",
+        "quiz": {
+          "title": "3.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 3 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:02.438Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 4",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "4.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 4/4.1/img_1.jpg\"></p>",
+        "quiz": {
+          "title": "4.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "4.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 4/4.2/img_1.jpg\"><img src=\"/lesson_images/Lesson 4/4.2/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "4.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "4.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 4/4.3/img_1.jpg\"><img src=\"/lesson_images/Lesson 4/4.3/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 4/4.3/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "4.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "4.4",
+        "content": "<p><img src=\"/lesson_images/Lesson 4/4.4/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 4/4.4/img_2.jpg\"><img src=\"/lesson_images/Lesson 4/4.4/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "4.4 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 4 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:02.922Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 5",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "5.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 5/5.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_5.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_6.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_7.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_8.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_9.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_10.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_11.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.1/img_12.jpg\"></p>",
+        "quiz": {
+          "title": "5.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "5.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 5/5.2/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.2/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.2/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.2/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.2/img_5.jpg\"></p><p><img src=\"/lesson_images/Lesson 5/5.2/img_6.jpg\"></p>",
+        "quiz": {
+          "title": "5.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "5.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 5/5.3/img_1.jpg\"><img src=\"/lesson_images/Lesson 5/5.3/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "5.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "5.4",
+        "content": "<p><img src=\"/lesson_images/Lesson 5/5.4/img_1.jpg\"><img src=\"/lesson_images/Lesson 5/5.4/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "5.4 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 5 final mcq set",
+      "questions": [
+        {
+          "question": "දිග 2 m සහ පළල 1 m වන සෘජුකෝණාස්‍රාකාර පතුලක් සහිත ඝනකයක් (ඝනකාභයක්) මේසයක් මත තැබූ විට, එය මේසය හා ස්පර්ශ වන පෘෂ්ඨයේ වර්ගඵලය (Surface Area) කොපමණද?",
+          "options": {
+            "A": "ඕනෑම බලයක්",
+            "B": "තෙරපුම පමණක්",
+            "C": "ඒකක වර්ගඵලයක් මත අභිලම්භව ක්‍රියා කරන බලය",
+            "D": "බර මැනීම"
+          },
+          "correctOption": "C"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:03.752Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 6",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "6.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 6/6.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 6/6.1/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "6.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "6.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 6/6.2/img_1.jpg\"><img src=\"/lesson_images/Lesson 6/6.2/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "6.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "6.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 6/6.3/img_1.jpg\"><img src=\"/lesson_images/Lesson 6/6.3/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "6.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "6.4",
+        "content": "<p><img src=\"/lesson_images/Lesson 6/6.4/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 6/6.4/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 6/6.4/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 6/6.4/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 6/6.4/img_5.jpg\"></p><p><img src=\"/lesson_images/Lesson 6/6.4/img_6.jpg\"></p>",
+        "quiz": {
+          "title": "6.4 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Final mcq se lesson6",
+      "questions": [
+        {
+          "question": "හෘදයේ කුටීර 4 අතරින් බිත්තිය වඩාත්ම ඝනකමින් වැඩි කුටීරය කුමක්ද? *",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "හෘදයේ සිට ශරීරයේ අනෙකුත් අවයව වෙත රුධිරය රැගෙන යන ප්‍රධාන ධමනිය කුමක්ද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "රුධිරය පාරවිලයනය කළ හැකි නිවැරදි සම්බන්ධතාවයක් තෝරන්න.",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "ඩෙංගු රෝගීන්ගේ ශරීරයේ ශීඝ්‍රයෙන් අඩු වන රුධිර සංසටකය කුමක්ද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "නිරෝගී දිවියක් සඳහා රුධිර සංසරණ පද්ධතිය යහපත්ව තබා ගැනීමට කළ යුතු ක්‍රියාවක් වන්නේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "ද්වීතූණ්ඩ කපාටය පිහිටා ඇත්තේ කුමන කුටීර දෙක අතරද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "ප්‍රතිදේහ නිපදවීම මගින් රෝගවලින් ආරක්ෂාව සපයන්නේ කුමන රුධිර සෛලද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "Rh- රුධිර ගණය ඇති පුද්ගලයෙකුට රුධිරය ලබා දිය හැක්කේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "රුධිරය හෘදය දෙසට රැගෙන එන නාල හඳුන්වන්නේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "මිනිස් හෘදය පිහිටා ඇත්තේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත සඳහන් ද්‍රව්‍ය අතරින් ප්ලාස්මාව මගින් පරිවහනය කරනු ලබන්නේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "රුධිර පාරවිලයනයකදී වැදගත් වන \"ගැළපීමේ වගුව\" අනුව AB රුධිර ගණය හිමි පුද්ගලයෙකුට රුධිරය ලබා ගත හැක්කේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පරිනත රතු රුධිරාණුවක දක්නට නොලැබෙන ව්‍යුහය කුමක්ද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "කේශනාලිකා එකතු වී සෑදෙන කුඩා රුධිර නාල මොනවාද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "රුධිර පාරවිලයනය යනු කුමක්ද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "Rh+ පුද්ගලයෙකුගේ රුධිරය Rh- පුද්ගලයෙකුට ලබා දුන් විට මුලින්ම සිදු වන්නේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පෙනහළුවල සිට හෘදය වෙත රුධිරය එන්නේ කුමන කුටීරයටද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "ත්‍රිතුණ්ඩ කපාටය පිහිටා ඇත්තේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "රුධිර ශ්ලේෂණය සිදු වන්නේ කුමන අවස්ථාවකද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "හිමොග්ලොබින් යනු කුමන මූලද්‍රව්‍යය අඩංගු සංයෝගයක්ද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "අධර මහා ශිරාව මගින් රුධිරය රැගෙන එන්නේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "ධමනියක හරස්කඩක් ශිරාවක හරස්කඩකට වඩා වෙනස් වන්නේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "O රුධිර ගණය ඇති පුද්ගලයෙකුට රුධිරය ලබා ගත හැක්කේ?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "රුධිර පට්ටිකා වල ප්‍රධාන කාර්යය කුමක්ද?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "මානව රුධිර සංසරණ පද්ධතිය යනු?",
+          "options": {
+            "A": "Option A",
+            "B": "Option B",
+            "C": "Option C",
+            "D": "Option D"
+          },
+          "correctOption": "A"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:04.269Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 7",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "7.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 7/7.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 7/7.1/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 7/7.1/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 7/7.1/img_4.jpg\"></p>",
+        "quiz": {
+          "title": "7.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "7.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 7/7.2/img_1.jpg\"><img src=\"/lesson_images/Lesson 7/7.2/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "7.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 7 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:04.561Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 8",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "8.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 8/8.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.1/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "8.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "8.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 8/8.2/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.2/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.2/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "8.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "8.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 8/8.3/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.3/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.3/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.3/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 8/8.3/img_5.jpg\"></p>",
+        "quiz": {
+          "title": "8.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 8 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:04.991Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson 9",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "9.1",
+        "content": "<p><img src=\"/lesson_images/Lesson 9/9.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson 9/9.1/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "9.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "9.2",
+        "content": "<p><img src=\"/lesson_images/Lesson 9/9.2/img_1.jpg\"><img src=\"/lesson_images/Lesson 9/9.2/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 9/9.2/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 9/9.2/img_4.jpg\"></p>",
+        "quiz": {
+          "title": "9.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "9.3",
+        "content": "<p><img src=\"/lesson_images/Lesson 9/9.3/img_1.jpg\"><img src=\"/lesson_images/Lesson 9/9.3/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson 9/9.3/img_3.jpg\"></p><p><img src=\"/lesson_images/Lesson 9/9.3/img_4.jpg\"></p><p><img src=\"/lesson_images/Lesson 9/9.3/img_5.jpg\"></p>",
+        "quiz": {
+          "title": "9.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "9.4",
+        "content": "<p><img src=\"/lesson_images/Lesson 9/9.4/img_1.jpg\"></p>",
+        "quiz": {
+          "title": "9.4 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson 9 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:05.537Z"
+  },
+  {
+    "teacherId": "system",
+    "teacherName": "Admin",
+    "subject": "Science",
+    "topic": "Lesson10",
+    "duration": 45,
+    "parts": [
+      {
+        "section": "10.1",
+        "content": "<p><img src=\"/lesson_images/Lesson10/10.1/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson10/10.1/img_2.jpg\"></p>",
+        "quiz": {
+          "title": "10.1 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "10.2",
+        "content": "<p><img src=\"/lesson_images/Lesson10/10.2/img_1.jpg\"><img src=\"/lesson_images/Lesson10/10.2/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson10/10.2/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "10.2 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      },
+      {
+        "section": "10.3",
+        "content": "<p><img src=\"/lesson_images/Lesson10/10.3/img_1.jpg\"></p><p><img src=\"/lesson_images/Lesson10/10.3/img_2.jpg\"></p><p><img src=\"/lesson_images/Lesson10/10.3/img_3.jpg\"></p>",
+        "quiz": {
+          "title": "10.3 MCQ",
+          "questions": [
+            {
+              "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+              "options": {
+                "A": "පිළිතුර A",
+                "B": "පිළිතුර B",
+                "C": "පිළිතුර C",
+                "D": "පිළිතුර D"
+              },
+              "correctOption": "A"
+            },
+            {
+              "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+              "options": {
+                "A": "පළමු ප්‍රකාශය",
+                "B": "දෙවන ප්‍රකාශය",
+                "C": "තුන්වන ප්‍රකාශය",
+                "D": "හතරවන ප්‍රකාශය"
+              },
+              "correctOption": "B"
+            }
+          ]
+        }
+      }
+    ],
+    "finalQuiz": {
+      "title": "Lesson10 Final MCQ",
+      "questions": [
+        {
+          "question": "මෙම කොටසින් උගත් කරුණු අනුව නිවැරදි පිළිතුර තෝරන්න.",
+          "options": {
+            "A": "පිළිතුර A",
+            "B": "පිළිතුර B",
+            "C": "පිළිතුර C",
+            "D": "පිළිතුර D"
+          },
+          "correctOption": "A"
+        },
+        {
+          "question": "පහත දැක්වෙන ප්‍රකාශ වලින් සත්‍ය ප්‍රකාශය කුමක්ද?",
+          "options": {
+            "A": "පළමු ප්‍රකාශය",
+            "B": "දෙවන ප්‍රකාශය",
+            "C": "තුන්වන ප්‍රකාශය",
+            "D": "හතරවන ප්‍රකාශය"
+          },
+          "correctOption": "B"
+        }
+      ]
+    },
+    "createdAt": "2026-05-09T18:55:05.920Z"
+  }
+]
