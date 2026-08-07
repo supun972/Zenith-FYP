@@ -7,6 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { getDocs, deleteDoc, doc } from 'firebase/firestore';
 import lessonsData from '../lessons_data.json';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 
 
@@ -24,6 +27,7 @@ const TeacherDashboard = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [newClassName, setNewClassName] = useState('');
   const [createdClasses, setCreatedClasses] = useState([]);
+  const [isGeneratingQuiz, setIsGeneratingQuiz] = useState(false);
   
   const [sessions, setSessions] = useState([]);
   
@@ -273,11 +277,90 @@ const TeacherDashboard = () => {
     }
   };
 
-  const handlePrintReport = () => {
-    toast.success("Preparing PDF Report...");
-    setTimeout(() => {
-      window.print();
-    }, 500);
+  const handlePrintReport = async () => {
+    toast.loading("Generating professional PDF...", { id: 'pdf-toast' });
+    try {
+      const btn = document.querySelector('.pdf-btn-hide');
+      if (btn) btn.style.display = 'none';
+
+      const reportElement = document.querySelector('.printable-report');
+      if (!reportElement) throw new Error("Report element not found");
+      
+      const canvas = await html2canvas(reportElement, { scale: 2, backgroundColor: '#060612' });
+      const imgData = canvas.toDataURL('image/png');
+      
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`${selectedStudent?.name || 'Student'}_Focus_Report.pdf`);
+      
+      if (btn) btn.style.display = 'inline-block';
+      toast.success("PDF Downloaded!", { id: 'pdf-toast' });
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to generate PDF", { id: 'pdf-toast' });
+      const btn = document.querySelector('.pdf-btn-hide');
+      if (btn) btn.style.display = 'inline-block';
+    }
+  };
+
+  const handleGenerateQuizWithAI = async () => {
+    if (!sessionData.content) {
+      toast.error("Please enter lesson content first!");
+      return;
+    }
+    
+    setIsGeneratingQuiz(true);
+    const toastId = toast.loading("AI is analyzing content and generating a quiz...");
+    
+    try {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) throw new Error("Missing Gemini API Key");
+      
+      const genAI = new GoogleGenerativeAI(apiKey);
+      const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
+      
+      const prompt = `You are an expert educator. Read the following lesson content and generate exactly ONE multiple choice question based on it.
+      Return ONLY a valid JSON object in this exact format, with no markdown formatting, no backticks, just the raw JSON:
+      {
+        "question": "The actual question text?",
+        "options": {
+          "A": "First option",
+          "B": "Second option",
+          "C": "Third option",
+          "D": "Fourth option"
+        },
+        "correctOpt": "A"
+      }
+      
+      Lesson Content:
+      ${sessionData.content.substring(0, 3000)}`;
+
+      const result = await model.generateContent(prompt);
+      const text = await result.response.text();
+      
+      const cleanedText = text.replace(/\`\`\`json/g, '').replace(/\`\`\`/g, '').trim();
+      const quizResult = JSON.parse(cleanedText);
+      
+      setSessionData(prev => ({
+        ...prev,
+        quizQuestion: quizResult.question || '',
+        optA: quizResult.options?.A || '',
+        optB: quizResult.options?.B || '',
+        optC: quizResult.options?.C || '',
+        optD: quizResult.options?.D || '',
+        correctOpt: quizResult.correctOpt || 'A'
+      }));
+      
+      toast.success("Quiz generated successfully!", { id: toastId });
+    } catch (err) {
+      console.error(err);
+      toast.error("AI Generation failed. Check console.", { id: toastId });
+    } finally {
+      setIsGeneratingQuiz(false);
+    }
   };
 
   const getBorderColor = (status) => {
@@ -485,8 +568,8 @@ const TeacherDashboard = () => {
                   )}
                 </div>
 
-                <div className="no-print" style={{ marginTop: '30px', textAlign: 'right' }}>
-                  <button className="btn btn-primary" onClick={handlePrintReport}><i className="fa-solid fa-download"></i> {t('teacher.rep_download')}</button>
+                <div className="no-print pdf-btn-hide" style={{ marginTop: '30px', textAlign: 'right' }}>
+                  <button className="btn btn-primary" onClick={handlePrintReport}><i className="fa-solid fa-download"></i> Download PDF Report</button>
                 </div>
               </div>
             ) : (
@@ -786,7 +869,18 @@ const TeacherDashboard = () => {
               </div>
               
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px', marginTop: '5px' }}>
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '15px', color: 'var(--secondary)' }}>Post-Session Quiz</h3>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                  <h3 style={{ fontSize: '1.1rem', margin: 0, color: 'var(--secondary)' }}>Post-Session Quiz</h3>
+                  <button 
+                    type="button" 
+                    className="btn btn-secondary" 
+                    onClick={handleGenerateQuizWithAI} 
+                    disabled={isGeneratingQuiz}
+                    style={{ fontSize: '0.8rem', padding: '5px 10px', background: 'rgba(124, 58, 237, 0.2)', color: 'var(--primary)', borderColor: 'var(--primary)' }}
+                  >
+                    {isGeneratingQuiz ? <><i className="fa-solid fa-spinner fa-spin"></i> Generating...</> : <><i className="fa-solid fa-wand-magic-sparkles"></i> Generate with AI</>}
+                  </button>
+                </div>
                 <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Quiz Question</label>
                 <input type="text" required value={sessionData.quizQuestion} onChange={(e) => setSessionData({...sessionData, quizQuestion: e.target.value})} placeholder="e.g. Where does Cellular Respiration primarily occur?" style={{ width: '100%', padding: '10px', borderRadius: '8px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', outline: 'none', marginBottom: '10px' }} />
                 
