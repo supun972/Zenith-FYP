@@ -544,7 +544,7 @@ const TeacherDashboard = () => {
                   </div>
                   <div>
                     <h2 style={{ fontSize: '1.8rem', margin: '0 0 5px 0' }}>{selectedStudent.name}</h2>
-                    <p style={{ color: 'var(--text-muted)', margin: 0 }}>ID: {selectedStudent.id}</p>
+                    <p style={{ color: 'var(--text-muted)', margin: 0, fontFamily: 'monospace' }}>ID: STD-{selectedStudent.id.substring(0, 6).toUpperCase()}</p>
                   </div>
                 </div>
                 
