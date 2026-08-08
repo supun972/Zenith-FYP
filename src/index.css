@@ -251,3 +251,36 @@ section {
 .reveal-right.active {
   transform: translateX(0);
 }
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .glass-panel {
+    background: transparent !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    color: black !important;
+  }
+  nav, button, .bg-grid, .orb, .btn {
+    display: none !important;
+  }
+  .printable-report {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    margin: 0;
+  }
+  * {
+    color: black !important;
+  }
+  .recharts-wrapper * {
+    stroke: black;
+  }
+  .recharts-text {
+    fill: black !important;
+  }
+}

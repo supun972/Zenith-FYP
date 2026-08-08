@@ -877,7 +877,11 @@ Tutor:`;
         </div>
         <div style={{ textAlign: 'right' }}>
           <div className="glass-panel" style={{ display: 'inline-block', padding: '10px 20px', borderRadius: '50px' }}>
-            <span style={{ color: 'var(--success)' }}><i className="fa-solid fa-fire"></i> 5 Day Streak</span>
+            {focusScore > 80 ? (
+              <span style={{ color: 'var(--success)' }}><i className="fa-solid fa-trophy"></i> Top Performer</span>
+            ) : (
+              <span style={{ color: 'var(--primary)' }}><i className="fa-solid fa-book"></i> Active Learner</span>
+            )}
           </div>
         </div>
       </div>
@@ -886,18 +890,18 @@ Tutor:`;
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '40px' }}>
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
           <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '10px' }}>Average Focus Score</div>
-          <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary)' }}>88%</div>
-          <div style={{ color: 'var(--success)', fontSize: '0.8rem', marginTop: '5px' }}><i className="fa-solid fa-arrow-up"></i> +2% from last week</div>
+          <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary)' }}>{focusScore}%</div>
+          <div style={{ color: 'var(--success)', fontSize: '0.8rem', marginTop: '5px' }}>{focusScore > 80 ? <><i className="fa-solid fa-arrow-up"></i> Great focus!</> : 'Keep it up!'}</div>
         </div>
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
           <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '10px' }}>Total Study Hours</div>
-          <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--secondary)' }}>24.5h</div>
-          <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '5px' }}>This month</div>
+          <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--secondary)' }}>{((completedSessionIds?.length || 0) * 45 / 60).toFixed(1)}h</div>
+          <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '5px' }}>Based on completed sessions</div>
         </div>
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
           <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '10px' }}>Tasks Completed</div>
-          <div style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>12/15</div>
-          <div style={{ color: 'var(--warning)', fontSize: '0.8rem', marginTop: '5px' }}>3 pending tasks</div>
+          <div style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>{(completedSessionIds?.length || 0)}/{assignedSessions.length}</div>
+          <div style={{ color: 'var(--warning)', fontSize: '0.8rem', marginTop: '5px' }}>{Math.max(0, assignedSessions.length - (completedSessionIds?.length || 0))} pending tasks</div>
         </div>
       </div>
 

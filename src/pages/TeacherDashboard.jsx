@@ -171,18 +171,24 @@ const TeacherDashboard = () => {
   const generatePredictiveInsights = () => {
     const insights = [];
     students.forEach(student => {
-      // Find their quizzes
       const studentQuizzes = quizResults.filter(q => q.studentName === student.name || q.studentId === student.id);
       if (studentQuizzes.length > 0) {
-        const avgScore = studentQuizzes.reduce((acc, curr) => acc + curr.score, 0) / studentQuizzes.length;
+        const sortedQuizzes = [...studentQuizzes].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+        const avgScore = sortedQuizzes.reduce((acc, curr) => acc + curr.score, 0) / sortedQuizzes.length;
+        const recentScore = sortedQuizzes[sortedQuizzes.length - 1].score;
+        const scoreDrop = avgScore - recentScore;
         
         // ML Heuristic Simulation
         if (student.focus < 60 && avgScore < 50) {
-           insights.push({ type: 'danger', student: student.name, message: `High Risk of Failing (Focus: ${student.focus}%, Avg Quiz: ${Math.round(avgScore)}%). Intervention required.` });
-        } else if (student.focus < 75 && avgScore >= 50 && avgScore < 75) {
-           insights.push({ type: 'warning', student: student.name, message: `Medium Risk. Focus is dropping (${student.focus}%) which may affect their average score (${Math.round(avgScore)}%).` });
-        } else if (avgScore > 90 && student.focus > 90) {
-           insights.push({ type: 'success', student: student.name, message: `Excellent Trajectory. High engagement and high scores.` });
+           insights.push({ type: 'danger', student: student.name, message: `High Risk: Consistently low focus (${student.focus}%) and failing average (${Math.round(avgScore)}%). Immediate intervention required.` });
+        } else if (scoreDrop > 20) {
+           insights.push({ type: 'danger', student: student.name, message: `Warning: Sudden performance drop detected. Recent quiz was ${Math.round(scoreDrop)}% below their average.` });
+        } else if (student.focus < 70 && avgScore >= 50 && avgScore < 75) {
+           insights.push({ type: 'warning', student: student.name, message: `Medium Risk: Focus is dropping (${student.focus}%) which may further impact their current average (${Math.round(avgScore)}%).` });
+        } else if (avgScore > 90 && student.focus > 85) {
+           insights.push({ type: 'success', student: student.name, message: `Excellent Trajectory: Consistent high engagement (${student.focus}%) correlating with top scores.` });
+        } else if (studentQuizzes.length >= 3 && scoreDrop < -15) {
+           insights.push({ type: 'success', student: student.name, message: `Positive Trend: Recent scores are significantly improving above their average.` });
         }
       }
     });
@@ -506,9 +512,14 @@ const TeacherDashboard = () => {
       <div className="container" style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '40px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
           <h2 style={{ fontSize: '2rem', margin: 0 }}><i className="fa-solid fa-chart-line" style={{ color: 'var(--primary)', marginRight: '15px' }}></i>{t('teacher.rep_title')}</h2>
-          <button className="btn btn-secondary" onClick={() => { setView('overview'); setSelectedStudent(null); }}>
-            <i className="fa-solid fa-arrow-left"></i> {t('teacher.rep_back')}
-          </button>
+          <div>
+            <button className="btn btn-secondary" onClick={() => { setView('overview'); setSelectedStudent(null); }}>
+              <i className="fa-solid fa-arrow-left"></i> {t('teacher.rep_back')}
+            </button>
+            <button className="btn btn-primary" onClick={() => window.print()} style={{ marginLeft: '15px' }}>
+              <i className="fa-solid fa-print"></i> Download PDF
+            </button>
+          </div>
         </div>
 
         <div className="reports-grid">
