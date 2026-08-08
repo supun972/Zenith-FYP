@@ -370,6 +370,8 @@ const TeacherDashboard = () => {
   };
 
   if (view === 'live-class') {
+    const avgFocus = students.length > 0 ? Math.round(students.reduce((acc, curr) => acc + curr.focus, 0) / students.length) : 100;
+    
     return (
       <div className="container" style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '40px' }}>
         <div className="glass-panel" style={{ padding: '15px 25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px', borderLeft: '4px solid var(--danger)' }}>
