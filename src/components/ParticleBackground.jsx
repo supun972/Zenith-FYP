@@ -35,9 +35,9 @@ const ParticleBackground = () => {
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.angle = Math.random() * Math.PI * 2;
 
-        this.speedX = (Math.random() - 0.5) * 0.3;
-        this.speedY = (Math.random() - 0.5) * 0.3;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.01;
+        this.speedX = (Math.random() - 0.5) * 0.15;
+        this.speedY = (Math.random() - 0.5) * 0.15;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.005;
       }
 
       update(mouseX, mouseY) {
@@ -49,11 +49,11 @@ const ParticleBackground = () => {
         const dy = mouseY - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 150) {
-          const force = (150 - distance) / 150;
-          this.x -= (dx / distance) * force * 2;
-          this.y -= (dy / distance) * force * 2;
-          this.angle += force * 0.05;
+        if (distance < 200) {
+          const force = (200 - distance) / 200;
+          this.x -= (dx / distance) * force * 1.2;
+          this.y -= (dy / distance) * force * 1.2;
+          this.angle += force * 0.02;
         }
 
         if (this.x < -20) this.x = canvas.width + 20;
@@ -141,7 +141,7 @@ const ParticleBackground = () => {
         height: '100%',
         zIndex: -1, // Ensure it is behind ALL other elements
         pointerEvents: 'none',
-        opacity: 0.8 // Slightly transparent so it doesn't overwhelm the dark mode
+        opacity: 0.5 // More transparent for an ambient background
       }}
     />
   );

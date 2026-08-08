@@ -11,7 +11,7 @@ const CursorGlow = () => {
       if (hidden) setHidden(false);
       if (glowRef.current) {
         // Direct DOM manipulation completely bypasses React render cycle = 60fps buttery smooth
-        glowRef.current.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
+        glowRef.current.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
       }
     };
 
@@ -43,13 +43,13 @@ const CursorGlow = () => {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(124, 58, 237, 0.05) 30%, transparent 60%)',
+        width: '600px',
+        height: '600px',
+        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(124, 58, 237, 0.02) 25%, transparent 50%)',
+        mixBlendMode: 'screen',
         borderRadius: '50%',
         pointerEvents: 'none',
-        // Start off-screen or wait for mouse move to set transform
-        transition: 'opacity 0.15s ease-out',
+        transition: 'opacity 0.2s ease-out',
         zIndex: 9999,
       }}
     />
