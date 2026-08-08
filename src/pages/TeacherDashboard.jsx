@@ -427,7 +427,7 @@ const TeacherDashboard = () => {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--danger)', animation: 'pulse 1.5s infinite' }}></div>
-              <h2 style={{ margin: 0, fontSize: '1.5rem' }}>LIVE: Grade 10 Biology</h2>
+              <h2 style={{ margin: 0, fontSize: '1.5rem' }}>LIVE SESSION</h2>
             </div>
             <p style={{ margin: 0, color: 'var(--text-muted)' }}>Class Code: <strong style={{ color: 'white', letterSpacing: '2px' }}>{activeCode}</strong></p>
           </div>
@@ -755,44 +755,10 @@ const TeacherDashboard = () => {
       </h2>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px' }}>
-        
-        {/* Class Card 1 */}
-        <div className="glass-panel" style={{ padding: '25px', borderRadius: '16px', borderTop: '4px solid var(--primary)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '15px' }}>
-            <div>
-              <div style={{ background: 'rgba(124, 58, 237, 0.2)', color: 'var(--primary)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem', display: 'inline-block', marginBottom: '10px', fontWeight: 'bold' }}>GRADE 10</div>
-              <h3 style={{ fontSize: '1.4rem', margin: '0 0 5px 0' }}>Biology</h3>
-              <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>32 {t('teacher.enrolled')}</div>
-            </div>
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', textAlign: 'center', border: '1px dashed rgba(255,255,255,0.2)' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>CODE</div>
-              <div style={{ fontWeight: 'bold', letterSpacing: '1px' }}>BIO-492</div>
-            </div>
-          </div>
-          <button className="btn btn-primary" onClick={() => startLiveClass('BIO-492')} style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-            <i className="fa-solid fa-video"></i> {t('teacher.start_live')}
-          </button>
-        </div>
-
-        {/* Class Card 2 */}
-        <div className="glass-panel" style={{ padding: '25px', borderRadius: '16px', borderTop: '4px solid var(--secondary)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '15px' }}>
-            <div>
-              <div style={{ background: 'rgba(14, 165, 233, 0.2)', color: 'var(--secondary)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem', display: 'inline-block', marginBottom: '10px', fontWeight: 'bold' }}>GRADE 11</div>
-              <h3 style={{ fontSize: '1.4rem', margin: '0 0 5px 0' }}>Physics</h3>
-              <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>28 {t('teacher.enrolled')}</div>
-            </div>
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', textAlign: 'center', border: '1px dashed rgba(255,255,255,0.2)' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>CODE</div>
-              <div style={{ fontWeight: 'bold', letterSpacing: '1px' }}>PHY-108</div>
-            </div>
-          </div>
-          <button className="btn btn-secondary" onClick={() => startLiveClass('PHY-108')} style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-            <i className="fa-solid fa-video"></i> {t('teacher.start_live')}
-          </button>
-        </div>
-
         {/* Dynamically Created Classes */}
+        {createdClasses.length === 0 && (
+          <div style={{ color: 'var(--text-muted)' }}>No classes created yet.</div>
+        )}
         {createdClasses.map((cls, idx) => (
           <div key={idx} className="glass-panel" style={{ padding: '25px', borderRadius: '16px', borderTop: '4px solid var(--accent)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '15px' }}>

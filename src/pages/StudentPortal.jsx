@@ -873,7 +873,7 @@ Tutor:`;
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '30px' }}>
         <div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '5px' }}>Welcome back, <span className="gradient-text">{user?.name || 'Student'}</span>!</h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>Grade 10 • Science Stream</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>{user?.email || 'Student Account'}</p>
         </div>
         <div style={{ textAlign: 'right' }}>
           <div className="glass-panel" style={{ display: 'inline-block', padding: '10px 20px', borderRadius: '50px' }}>
