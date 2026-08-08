@@ -9,20 +9,16 @@ async function parseMCQHtml(html, title) {
   let currentQ = null;
 
   $('p, li').each((i, el) => {
-    // We only want leaf nodes or nodes where the text is direct, but `.text()` will extract everything.
-    // Wait, if an `<li>` contains a `<ul>` with options, `$(el).text()` of the outer `<li>` will include the options!
-    // To prevent this, we should only get the direct text nodes.
-    let text = $(el).clone().children().remove().end().text().trim();
+    let clone = $(el).clone();
+    clone.find('ul, ol').remove();
+    let text = clone.text().trim();
+    
     if (!text && $(el).is('p')) {
         text = $(el).text().trim();
     }
     
-    // Sometimes mammoth converts lists directly, sometimes not. Let's handle plain text as well.
     if (!text) {
         text = $(el).text().trim();
-        // If it still has multiple lines (like options appended), we might need to skip or process differently
-        // Actually, if it's an <li> containing a <ul>, the outer <li> text includes the inner.
-        // By removing children, we get just the question text!
     }
 
     if (!text) return;
@@ -38,17 +34,21 @@ async function parseMCQHtml(html, title) {
         const optLetter = optMatch[1].toUpperCase();
         let optText = optMatch[2].trim();
         
-        const hasStrong = $(el).find('strong').length > 0;
+        const hasStrong = $(el).find('strong, b').length > 0;
         if (hasStrong) {
           currentQ.correctOption = optLetter;
         }
         
-        currentQ.options[optLetter] = optText;
+        if (optText) {
+          currentQ.options[optLetter] = optText;
+        } else {
+           currentQ.options[optLetter] = text.replace(/^([A-Da-d])[\)\.]?\s+/, '').trim();
+        }
       }
     } else {
       // It's not an option, so it must be a question (or title)
       // Ignore titles (e.g. "බහුවරණ ප්‍රශ්න")
-      if (text.length > 3 && !text.includes('බහුවරණ') && !text.match(/^lesson/i) && !text.match(/MCQ$/i)) {
+      if (text.length > 3 && !text.includes('බහුවරණ') && !text.match(/^lesson/i) && !text.match(/MCQ$/i) && !text.match(/ප්‍රශ්න \d/i)) {
         if (currentQ) questions.push(currentQ);
         currentQ = {
           question: qMatch[2] ? qMatch[2].trim() : text,
