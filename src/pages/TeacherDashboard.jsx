@@ -147,6 +147,49 @@ const TeacherDashboard = () => {
 
   const avgFocus = Math.round(students.reduce((acc, curr) => acc + curr.focus, 0) / students.length) || 100;
 
+  // Compute Real BarChart Data (Moved up to follow Rules of Hooks)
+  const engagementChartData = useMemo(() => {
+    const topics = {};
+    quizResults.forEach(q => {
+      const topic = q.quizTitle || 'Unknown Session';
+      if (!topics[topic]) topics[topic] = { total: 0, count: 0 };
+      topics[topic].total += (q.averageFocus || 100);
+      topics[topic].count += 1;
+    });
+
+    const data = Object.keys(topics).map(topic => ({
+      name: topic.length > 15 ? topic.substring(0, 15) + '...' : topic,
+      engagement: Math.round(topics[topic].total / topics[topic].count)
+    }));
+
+    return data.length > 0 ? data : [
+      { name: 'No Data Yet', engagement: 0 }
+    ];
+  }, [quizResults]);
+
+  // --- AI Predictive Risk Analytics Engine ---
+  const generatePredictiveInsights = () => {
+    const insights = [];
+    students.forEach(student => {
+      // Find their quizzes
+      const studentQuizzes = quizResults.filter(q => q.studentName === student.name || q.studentId === student.id);
+      if (studentQuizzes.length > 0) {
+        const avgScore = studentQuizzes.reduce((acc, curr) => acc + curr.score, 0) / studentQuizzes.length;
+        
+        // ML Heuristic Simulation
+        if (student.focus < 60 && avgScore < 50) {
+           insights.push({ type: 'danger', student: student.name, message: `High Risk of Failing (Focus: ${student.focus}%, Avg Quiz: ${Math.round(avgScore)}%). Intervention required.` });
+        } else if (student.focus < 75 && avgScore >= 50 && avgScore < 75) {
+           insights.push({ type: 'warning', student: student.name, message: `Medium Risk. Focus is dropping (${student.focus}%) which may affect their average score (${Math.round(avgScore)}%).` });
+        } else if (avgScore > 90 && student.focus > 90) {
+           insights.push({ type: 'success', student: student.name, message: `Excellent Trajectory. High engagement and high scores.` });
+        }
+      }
+    });
+    return insights.length > 0 ? insights : [{ type: 'info', message: 'Gathering more data to generate predictive insights.' }];
+  };
+  const aiInsights = generatePredictiveInsights();
+
   const startLiveClass = (code) => {
     setActiveCode(code);
     setView('live-class');
@@ -587,55 +630,12 @@ const TeacherDashboard = () => {
     );
   }
 
-  // --- AI Predictive Risk Analytics Engine ---
-  const generatePredictiveInsights = () => {
-    const insights = [];
-    students.forEach(student => {
-      // Find their quizzes
-      const studentQuizzes = quizResults.filter(q => q.studentName === student.name || q.studentId === student.id);
-      if (studentQuizzes.length > 0) {
-        const avgScore = studentQuizzes.reduce((acc, curr) => acc + curr.score, 0) / studentQuizzes.length;
-        
-        // ML Heuristic Simulation
-        if (student.focus < 60 && avgScore < 50) {
-           insights.push({ type: 'danger', student: student.name, message: `High Risk of Failing (Focus: ${student.focus}%, Avg Quiz: ${Math.round(avgScore)}%). Intervention required.` });
-        } else if (student.focus < 75 && avgScore >= 50 && avgScore < 75) {
-           insights.push({ type: 'warning', student: student.name, message: `Medium Risk. Focus is dropping (${student.focus}%) which may affect their average score (${Math.round(avgScore)}%).` });
-        } else if (avgScore > 90 && student.focus > 90) {
-           insights.push({ type: 'success', student: student.name, message: `Excellent Trajectory. High engagement and high scores.` });
-        }
-      }
-    });
-    return insights.length > 0 ? insights : [{ type: 'info', message: 'Gathering more data to generate predictive insights.' }];
-  };
-  const aiInsights = generatePredictiveInsights();
-
   // Compute Real Data Statistics
   const realActiveStudents = students.length;
   const realClassesTaught = createdClasses.length;
   const realAvgEngagement = quizResults.length > 0 
     ? Math.round(quizResults.reduce((acc, curr) => acc + (curr.averageFocus || 100), 0) / quizResults.length) 
     : 100;
-
-  // Compute Real BarChart Data
-  const engagementChartData = useMemo(() => {
-    const topics = {};
-    quizResults.forEach(q => {
-      const topic = q.quizTitle || 'Unknown Session';
-      if (!topics[topic]) topics[topic] = { total: 0, count: 0 };
-      topics[topic].total += (q.averageFocus || 100);
-      topics[topic].count += 1;
-    });
-
-    const data = Object.keys(topics).map(topic => ({
-      name: topic.length > 15 ? topic.substring(0, 15) + '...' : topic,
-      engagement: Math.round(topics[topic].total / topics[topic].count)
-    }));
-
-    return data.length > 0 ? data : [
-      { name: 'No Data Yet', engagement: 0 }
-    ];
-  }, [quizResults]);
 
   // OVERVIEW VIEW
   return (
