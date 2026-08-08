@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-hot-toast';
 import { doc, getDoc, updateDoc, collection, query, where, onSnapshot, addDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../firebase';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import Tesseract from 'tesseract.js';
 import FocusTracker from '../components/student/FocusTracker';
@@ -319,42 +319,29 @@ const StudentPortal = () => {
       setIsAiTyping(true);
       
       try {
-        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
         let text = "";
         
         try {
-          if (!apiKey) {
-            throw new Error("API Key not found in .env");
-          }
-          
-          const genAI = new GoogleGenerativeAI(apiKey);
-          
           const currentContext = activeSession 
             ? `The student is currently studying: ${activeSession.subject} - ${activeSession.topic}.`
             : 'The student is on the main dashboard and not currently in a specific lesson.';
-
-          // Using gemini-flash-latest as it is fully supported by the newer API keys
-          const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
-          
+            
           const conversationContext = aiMessages.slice(-6).map(msg => `${msg.sender === 'ai' ? 'Tutor' : 'Student'}: ${msg.text}`).join('\n');
           
-          const prompt = `System Instructions: You are the ZENITH AI Tutor, an expert, friendly educational assistant helping a high school student. 
-${currentContext}
-Rules:
-1. Keep answers short (maximum 3 sentences).
-2. Be encouraging and use emojis occasionally.
-3. Use simple, easy-to-understand language.
-4. Do NOT use markdown formatting like asterisks or bolding, use plain text.
+          const response = await fetch('/api/tutor-chat', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userText, conversationContext, currentContext }),
+          });
 
-Past Conversation:
-${conversationContext}
+          if (!response.ok) {
+            throw new Error('Failed to generate AI reply from server');
+          }
 
-Student: ${userText}
-Tutor:`;
-
-          const result = await model.generateContent(prompt);
-          const response = await result.response;
-          text = response.text();
+          const result = await response.json();
+          text = result.reply;
           text = text.replace(/\*/g, '');
         } catch (apiError) {
           console.error("AI API Error:", apiError);
