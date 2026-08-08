@@ -449,7 +449,7 @@
                 "C": "නාසය",
                 "D": "කන් පටලය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ඇසේ වර්ණවත් කොටස ලෙස හඳුන්වන්නේ කුමක්ද?",
@@ -469,7 +469,7 @@
                 "C": "කෝර්නියා",
                 "D": "අයිරිස්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ඇසේ පියුපිල් ප්‍රමාණය පාලනය කරන්නේ කුමක්ද?",
@@ -479,7 +479,7 @@
                 "C": "අයිරිස්",
                 "D": "දෘෂ්ටි ස්නායුව"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             },
             {
               "question": "ආලෝකය රූපයක් බවට පත්වන ස්ථානය කුමක්ද?",
@@ -489,7 +489,7 @@
                 "C": "පියුපිල්",
                 "D": "අයිරිස්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             }
           ]
         }
@@ -508,7 +508,7 @@
                 "C": "කෝර්නියා මඟින්",
                 "D": "ස්නායු මඟින්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "අඳුරේදී පියුපිල් ප්‍රමාණය කෙසේ වේද?",
@@ -518,7 +518,7 @@
                 "C": "වෙනසක් නැත",
                 "D": "නැතිවේ"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ආලෝකය වැඩි විට පියුපිල් ප්‍රමාණය කෙසේ වේද?",
@@ -528,7 +528,7 @@
                 "C": "නැතිවේ",
                 "D": "දෙගුණ වේ"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ලෙන්සයේ හැඩය වෙනස් වීම හඳුන්වන්නේ කුමක් ලෙසද?",
@@ -538,7 +538,7 @@
                 "C": "Accommodation",
                 "D": "සංවේදනය"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             },
             {
               "question": "ආසන්න වස්තු බැලීමේදී ලෙන්සය කෙසේ වේද?",
@@ -548,7 +548,7 @@
                 "C": "ඝන වේ",
                 "D": "නැතිවේ"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             }
           ]
         }
@@ -567,7 +567,7 @@
                 "C": "අර්ධ වෘත්තීය නාල",
                 "D": "කන් පටලය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ශබ්ද තරංග මුලින්ම වැදෙන ස්ථානය කුමක්ද?",
@@ -577,7 +577,7 @@
                 "C": "පින්නා",
                 "D": "දෘෂ්ටි ස්නායුව"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "මධ්‍ය කනේ අස්ථි කීයක් තිබේද?",
@@ -587,7 +587,7 @@
                 "C": "3",
                 "D": "4"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             },
             {
               "question": "ශබ්ද පණිවිඩ මොළයට ගෙන යන්නේ කුමක්ද?",
@@ -607,7 +607,7 @@
                 "C": "කන් පටලය",
                 "D": "පින්නා"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             }
           ]
         }
@@ -626,7 +626,7 @@
                 "C": "පින්නා",
                 "D": "කෝර්නියා"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ශබ්ද තරංග යාන්ත්‍රික කම්පන බවට පත් වන්නේ කොතැනද?",
@@ -646,7 +646,7 @@
                 "C": "පින්නා",
                 "D": "ශ්‍රවණ ස්නායුව"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             },
             {
               "question": "කනේ අස්ථි වල ප්‍රධාන කාර්යය කුමක්ද?",
@@ -656,7 +656,7 @@
                 "C": "රූප සෑදීම",
                 "D": "රුධිරය ප්‍රවාහනය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "කනේ තරලයෙන් පිරුණු කොටස කුමක්ද?",
@@ -685,7 +685,7 @@
                 "C": "දූවිලි වලට නිරාවරණය වීම",
                 "D": "අධික ලෙස රූපවාහිනිය බැලීම"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "කනට හානි වීමට හේතු විය හැක්කේ කුමක්ද?",
@@ -695,7 +695,7 @@
                 "C": "පිරිසිදු කිරීම",
                 "D": "විවේකය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ඇස් පරීක්ෂා කිරීම වැදගත් වන්නේ ඇයි?",
@@ -715,7 +715,7 @@
                 "C": "ජලය",
                 "D": "වෛද්‍ය උපදෙස්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "දීර්ඝ කාලයක් අධික ශබ්දයට නිරාවරණය වීමෙන් ඇති විය හැක්කේ කුමක්ද?",
@@ -725,7 +725,7 @@
                 "C": "දෘෂ්ටිය වැඩි වීම",
                 "D": "සමතුලිතතාව වැඩි වීම"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             }
           ]
         }
@@ -752,7 +752,7 @@
             "C": "අයිරිස්",
             "D": "කොක්ලියා"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "දෘශ්‍ය පණිවිඩ මොළයට ගෙන යන්නේ කුමක්ද?",
@@ -762,7 +762,7 @@
             "C": "කන් පටලය",
             "D": "පින්නා"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "ආසන්න වස්තු බැලීමේදී ලෙන්සය කෙසේ වෙනස් වේද?",
@@ -772,7 +772,7 @@
             "C": "නැතිවේ",
             "D": "විශාල වේ"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "ශබ්ද තරංග මුලින්ම වැදෙන ස්ථානය කුමක්ද?",
@@ -782,7 +782,7 @@
             "C": "අර්ධ වෘත්තීය නාල",
             "D": "දෘෂ්ටි ස්නායුව"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "මධ්‍ය කනේ අස්ථි කීයක් තිබේද?",
@@ -792,7 +792,7 @@
             "C": "3",
             "D": "4"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "කනේ සමතුලිතතාව පාලනය කරන කොටස කුමක්ද?",
@@ -802,7 +802,7 @@
             "C": "අර්ධ වෘත්තීය නාල",
             "D": "කන් පටලය"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "කොක්ලියාහි ප්‍රධාන කාර්යය කුමක්ද?",
@@ -832,7 +832,7 @@
             "C": "දෘෂ්ටිය වැඩි වීම",
             "D": "සමතුලිතතාව වැඩි වීම"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         }
       ]
     },
@@ -3210,7 +3210,7 @@
                 "C": "චාල්ස් ඩාර්වින්",
                 "D": "එඩිසන්"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             },
             {
               "question": "Natural selection යන්නෙන් අදහස් වන්නේ",
@@ -3220,7 +3220,7 @@
                 "C": "ශාක වගා කිරීම",
                 "D": "සතුන් පාලනය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "පරිසරයට හොඳින් ගැළපෙන ජීවීන්",
@@ -3230,7 +3230,7 @@
                 "C": "චලනය නොකරයි",
                 "D": "වර්ධනය නවත්වයි"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Adaptation යනු කුමක්ද?",
@@ -3289,7 +3289,7 @@
                 "C": "ප්‍රජනන අවයව",
                 "D": "ශාක කොටස්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "මිනිසාගේ appendix එක උදාහරණයක් වන්නේ",
@@ -3299,7 +3299,7 @@
                 "C": "Sensory organ",
                 "D": "Respiratory organ"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             }
           ]
         }
@@ -3328,7 +3328,7 @@
                 "C": "ආහාර පමණක්",
                 "D": "වයස පමණක්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Variation ජීවීන්ට වැදගත් වන්නේ",
@@ -3358,7 +3358,7 @@
                 "C": "ඔව්",
                 "D": "කලාතුරකින් පමණි"
               },
-              "correctOption": "A"
+              "correctOption": "C"
             }
           ]
         }
@@ -3377,7 +3377,7 @@
                 "C": "ජාන විනාශය",
                 "D": "ස්වභාවික වර්ධනය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ගොවිපළ සතුන් තෝරා බෝ කිරීම උදාහරණයක් වන්නේ",
@@ -3387,7 +3387,7 @@
                 "C": "Mutation",
                 "D": "Respiration"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Biodiversity යන්නෙන් අදහස් වන්නේ",
@@ -3407,7 +3407,7 @@
                 "C": "බලපාන්නේ නැත",
                 "D": "වර්ධනය කරයි"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ජීවී විවිධත්වය සංරක්ෂණය වැදගත් වන්නේ",
@@ -3444,7 +3444,7 @@
             "C": "චාල්ස් ඩාර්වින්",
             "D": "එඩිසන්"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "Natural selection යන්නෙන් අදහස් වන්නේ",
@@ -3454,7 +3454,7 @@
             "C": "ශාක වගා කිරීම",
             "D": "ජලය පාලනය කිරීම"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Adaptation යනු කුමක්ද?",
@@ -3494,7 +3494,7 @@
             "C": "හෘදය සහ වකුගඩු",
             "D": "මුල් සහ කොළ"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Vestigial organs යනු",
@@ -3504,7 +3504,7 @@
             "C": "ආහාර ජීර්ණ අවයව",
             "D": "ශ්වසන අවයව"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Variation යන්නෙන් අදහස් වන්නේ",
@@ -3544,7 +3544,7 @@
             "C": "ස්වභාවික වර්ධනය",
             "D": "පරිසර විනාශය"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "ගොවිපළ සතුන් තෝරා බෝ කිරීම උදාහරණයක් වන්නේ",
@@ -3554,7 +3554,7 @@
             "C": "Mutation",
             "D": "Respiration"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Biodiversity යන්නෙන් අදහස් වන්නේ",
@@ -3601,7 +3601,7 @@
                 "C": "තාපය නිපදවීම",
                 "D": "වායු පීඩනය වැඩි කිරීම"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "විද්‍යුත් විච්ඡේදනය සඳහා අවශ්‍ය ප්‍රධාන දෙයක් කුමක්ද?",
@@ -3611,7 +3611,7 @@
                 "C": "ජල වාෂ්පය",
                 "D": "ආලෝකය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Electrolyte යනු",
@@ -3621,7 +3621,7 @@
                 "C": "ලෝහයක් පමණි",
                 "D": "වායුවක් පමණි"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Cathode යනු",
@@ -3631,7 +3631,7 @@
                 "C": "මධ්‍ය කොටස",
                 "D": "විද්‍යුත් මීටරය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Anode යනු",
@@ -3641,7 +3641,7 @@
                 "C": "ද්‍රාවණය",
                 "D": "බැටරිය"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             }
           ]
         }
@@ -3660,7 +3660,7 @@
                 "C": "ආරෝපණ නොමැති අයනය",
                 "D": "ලෝහයක්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Anion යනු",
@@ -3670,7 +3670,7 @@
                 "C": "ජල අණුවක්",
                 "D": "වායුවක්"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Cation ගමන් කරන්නේ",
@@ -3690,7 +3690,7 @@
                 "C": "මධ්‍යයට",
                 "D": "විද්‍යුත් මීටරයට"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "ජලයේ විද්‍යුත් විච්ඡේදනයේදී නිපදවන වායු 2 කුමක්ද?",
@@ -3719,7 +3719,7 @@
                 "C": "ජලය විභජනය කිරීම",
                 "D": "විදුලි බල්බයක් දැල්වීම"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "Electroplating සඳහා භාවිතා කරන එක් ලෝහයක් කුමක්ද?",
@@ -3739,7 +3739,7 @@
                 "C": "වර්ණය ඉවත් කිරීම",
                 "D": "විද්‍යුතය නවත්වීම"
               },
-              "correctOption": "A"
+              "correctOption": "B"
             },
             {
               "question": "බැටරි charging කිරීම සම්බන්ධ වන්නේ",
@@ -3776,7 +3776,7 @@
             "C": "වායු තත්වයේ",
             "D": "හිම තත්වයේ"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Electrodes සාමාන්‍යයෙන් සාදා ඇත්තේ",
@@ -3786,7 +3786,7 @@
             "C": "ලෝහ හෝ කාබන් වලින්",
             "D": "රෙදි වලින්"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "Cathode වෙත ගමන් කරන අයන වර්ගය කුමක්ද?",
@@ -3796,7 +3796,7 @@
             "C": "Cation",
             "D": "Molecule"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "Anode වෙත ගමන් කරන අයන වර්ගය කුමක්ද?",
@@ -3806,7 +3806,7 @@
             "C": "Proton",
             "D": "Neutron"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "විද්‍යුත් විච්ඡේදනයේදී රසායනික වෙනසක් සිදුවන්නේ",
@@ -3836,7 +3836,7 @@
             "C": "ශබ්දය නවතී",
             "D": "උෂ්ණත්වය අඩුවේ"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Molten sodium chloride විද්‍යුත් විච්ඡේදනයේදී නිපදවන ලෝහය කුමක්ද?",
@@ -3846,7 +3846,7 @@
             "C": "Iron",
             "D": "Zinc"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Electrolysis භාවිතා කර ලෝහ පිරිසිදු කිරීම හඳුන්වන්නේ",
@@ -3856,7 +3856,7 @@
             "C": "Electrorefining",
             "D": "Evaporation"
           },
-          "correctOption": "A"
+          "correctOption": "C"
         },
         {
           "question": "Electrolysis ක්‍රියාවලියේදී positive electrode එක හැඳින්වෙන්නේ",
@@ -3866,7 +3866,7 @@
             "C": "Electrolyte",
             "D": "Ion"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Dilute sulfuric acid ජලයට එක්කරන්නේ",
@@ -3876,7 +3876,7 @@
             "C": "උෂ්ණත්වය අඩු කිරීමට",
             "D": "වායු නවත්වීමට"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "Electroplating සඳහා ආලේප කළ යුතු භාණ්ඩය සම්බන්ධ කරන්නේ",
@@ -3886,7 +3886,7 @@
             "C": "Battery මැදට",
             "D": "Switch එකට"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         },
         {
           "question": "විද්‍යුත් විච්ඡේදනය භාවිතයෙන් නිපදවන වායුවක් කුමක්ද?",
@@ -3916,7 +3916,7 @@
             "C": "අතුරුදහන් වේ",
             "D": "වායුවක් බවට පත්වේ"
           },
-          "correctOption": "A"
+          "correctOption": "B"
         }
       ]
     },
