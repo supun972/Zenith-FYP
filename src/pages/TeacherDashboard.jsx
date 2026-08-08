@@ -914,7 +914,10 @@ const TeacherDashboard = () => {
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '10px' }}>Assign Session</button>
+              <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                <button type="button" className="btn btn-secondary" style={{ flex: 1 }} onClick={() => setIsAssignSessionModalOpen(false)}>Cancel</button>
+                <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>Assign Session</button>
+              </div>
             </form>
           </div>
         </div>
