@@ -581,7 +581,7 @@ const TeacherDashboard = () => {
                 <h3 style={{ marginBottom: '15px', fontSize: '1.2rem' }}>Quiz Performance Trend</h3>
                 <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: '12px', padding: '20px', marginBottom: '30px', height: '300px' }}>
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={chartData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
+                    <BarChart data={chartData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                       <XAxis dataKey="time" stroke="var(--text-muted)" tick={{fill: 'var(--text-muted)'}} />
                       <YAxis stroke="var(--text-muted)" tick={{fill: 'var(--text-muted)'}} domain={[0, 100]} />
@@ -590,8 +590,8 @@ const TeacherDashboard = () => {
                         itemStyle={{ color: 'var(--primary)' }}
                         formatter={(value, name, props) => [value + '%', props.payload.title || 'Score']}
                       />
-                      <Line type="monotone" dataKey="score" stroke="var(--primary)" strokeWidth={3} dot={{ r: 4, fill: 'var(--secondary)' }} activeDot={{ r: 8 }} />
-                    </LineChart>
+                      <Bar dataKey="score" fill="var(--primary)" radius={[4, 4, 0, 0]} />
+                    </BarChart>
                   </ResponsiveContainer>
                 </div>
 
