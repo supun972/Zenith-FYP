@@ -706,7 +706,7 @@ Tutor:`;
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Question {currentQuestion + 1} of {currentQuiz.questions.length}</p>
                   <h4 style={{ margin: '15px 0', fontSize: '1rem' }}>{q?.question}</h4>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {q && Object.entries(q.options).map(([key, text]) => (
+                    {q && Object.entries(q.options).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)).map(([key, text]) => (
                       <button 
                         key={key}
                         className="btn btn-secondary" 
