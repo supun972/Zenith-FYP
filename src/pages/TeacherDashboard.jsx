@@ -491,6 +491,21 @@ const TeacherDashboard = () => {
   }
 
   if (view === 'reports') {
+    const studentQuizzes = selectedStudent ? quizResults.filter(q => q.studentName === selectedStudent.name) : [];
+    const quizAverage = studentQuizzes.length > 0 
+      ? Math.round(studentQuizzes.reduce((acc, curr) => acc + curr.score, 0) / studentQuizzes.length)
+      : 0;
+    const sessionsAttended = selectedStudent?.completedLessons?.length || 0;
+    const totalSessions = sessions.length || 0;
+    
+    const chartData = studentQuizzes.length > 0 ? studentQuizzes.slice(0, 10).reverse().map((q, idx) => ({
+      time: `Q${idx+1}`,
+      score: q.score,
+      title: q.quizTitle
+    })) : [
+      { time: 'No Data', score: 0 }
+    ];
+
     return (
       <div className="container" style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '40px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
@@ -548,58 +563,37 @@ const TeacherDashboard = () => {
                   </div>
                 </div>
                 
-                {(() => {
-                   const studentQuizzes = quizResults.filter(q => q.studentName === selectedStudent.name);
-                   const quizAverage = studentQuizzes.length > 0 
-                     ? Math.round(studentQuizzes.reduce((acc, curr) => acc + curr.score, 0) / studentQuizzes.length)
-                     : 0;
-                   const sessionsAttended = selectedStudent.completedLessons?.length || 0;
-                   const totalSessions = sessions.length || 0;
-                   
-                   const chartData = studentQuizzes.length > 0 ? studentQuizzes.slice(0, 10).reverse().map((q, idx) => ({
-                      time: `Q${idx+1}`,
-                      score: q.score,
-                      title: q.quizTitle
-                   })) : [
-                      { time: 'No Data', score: 0 }
-                   ];
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px', marginBottom: '30px' }}>
+                   <div style={{ background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
+                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>AVERAGE FOCUS</div>
+                     <div style={{ fontSize: '2rem', fontWeight: 'bold', color: selectedStudent.focus > 75 ? 'var(--success)' : 'var(--warning)' }}>{selectedStudent.focus}%</div>
+                   </div>
+                   <div style={{ background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
+                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>QUIZ AVERAGE</div>
+                     <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)' }}>{studentQuizzes.length > 0 ? `${quizAverage}%` : 'N/A'}</div>
+                   </div>
+                   <div style={{ background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
+                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>SESSIONS COMPLETED</div>
+                     <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--secondary)' }}>{sessionsAttended}/{totalSessions}</div>
+                   </div>
+                </div>
 
-                   return (
-                     <>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px', marginBottom: '30px' }}>
-                           <div style={{ background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
-                             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>AVERAGE FOCUS</div>
-                             <div style={{ fontSize: '2rem', fontWeight: 'bold', color: selectedStudent.focus > 75 ? 'var(--success)' : 'var(--warning)' }}>{selectedStudent.focus}%</div>
-                           </div>
-                           <div style={{ background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
-                             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>QUIZ AVERAGE</div>
-                             <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)' }}>{studentQuizzes.length > 0 ? `${quizAverage}%` : 'N/A'}</div>
-                           </div>
-                           <div style={{ background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '12px', textAlign: 'center' }}>
-                             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>SESSIONS COMPLETED</div>
-                             <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--secondary)' }}>{sessionsAttended}/{totalSessions}</div>
-                           </div>
-                        </div>
-
-                        <h3 style={{ marginBottom: '15px', fontSize: '1.2rem' }}>Quiz Performance Trend</h3>
-                        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: '12px', padding: '20px', marginBottom: '30px', height: '300px' }}>
-                          <ResponsiveContainer width="100%" height="100%">
-                            <LineChart data={chartData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
-                              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                              <XAxis dataKey="time" stroke="var(--text-muted)" tick={{fill: 'var(--text-muted)'}} />
-                              <YAxis stroke="var(--text-muted)" tick={{fill: 'var(--text-muted)'}} domain={[0, 100]} />
-                              <Tooltip 
-                                contentStyle={{ background: 'rgba(6, 6, 18, 0.9)', border: '1px solid var(--primary)', borderRadius: '8px' }}
-                                itemStyle={{ color: 'var(--primary)' }}
-                                formatter={(value, name, props) => [value + '%', props.payload.title || 'Score']}
-                              />
-                              <Line type="monotone" dataKey="score" stroke="var(--primary)" strokeWidth={3} dot={{ r: 4, fill: 'var(--secondary)' }} activeDot={{ r: 8 }} />
-                            </LineChart>
-                          </ResponsiveContainer>
-                        </div>
-                     </>
-                   )
-                })()}
+                <h3 style={{ marginBottom: '15px', fontSize: '1.2rem' }}>Quiz Performance Trend</h3>
+                <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: '12px', padding: '20px', marginBottom: '30px', height: '300px' }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={chartData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+                      <XAxis dataKey="time" stroke="var(--text-muted)" tick={{fill: 'var(--text-muted)'}} />
+                      <YAxis stroke="var(--text-muted)" tick={{fill: 'var(--text-muted)'}} domain={[0, 100]} />
+                      <Tooltip 
+                        contentStyle={{ background: 'rgba(6, 6, 18, 0.9)', border: '1px solid var(--primary)', borderRadius: '8px' }}
+                        itemStyle={{ color: 'var(--primary)' }}
+                        formatter={(value, name, props) => [value + '%', props.payload.title || 'Score']}
+                      />
+                      <Line type="monotone" dataKey="score" stroke="var(--primary)" strokeWidth={3} dot={{ r: 4, fill: 'var(--secondary)' }} activeDot={{ r: 8 }} />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
 
                 <h3 style={{ marginBottom: '15px', fontSize: '1.2rem' }}>Recent Quiz Results</h3>
                 <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: '12px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
