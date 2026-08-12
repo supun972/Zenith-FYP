@@ -594,14 +594,169 @@ const StudentPortal = () => {
                   if (bottom) {
                      const isFinalPart = activePartIndex >= (activeSession?.parts?.length || 0);
                      if (!isFinalPart && activeSession?.parts?.[activePartIndex]?.quiz) {
+                        if (view !== 'quiz') {
+                          // Play a simple notification sound
+                          const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+                          audio.volume = 0.5;
+                          audio.play().catch(e => console.log('Audio play failed', e));
+                          toast("Quiz time! Let's test your knowledge.", { icon: '📝', duration: 5000 });
+                        }
                         setView('quiz');
                      }
                   }
                 }}
               >
-                {/* Lesson Header */}
-                <div style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                   <div>
+                {view === 'quiz' ? (
+                  // --- QUIZ UI ---
+                  <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  {(!currentQuiz || !currentQuiz.questions || currentQuiz.questions.length === 0) ? (
+                     <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                        <p>No quiz available.</p>
+                        <button className="btn btn-primary" onClick={() => { 
+                           if (!isFinalQuiz) { setActivePartIndex(prev => prev + 1); setView('session'); }
+                           else { setView('dashboard'); }
+                        }}>Continue</button>
+                     </div>
+                  ) : quizState !== 'completed' ? (
+                    <>
+                      <h2 style={{ marginBottom: '20px', fontSize: '1.5rem', color: 'var(--primary)' }}>{currentQuiz.title || 'Knowledge Check'}</h2>
+                      <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '15px' }}>Question {currentQuestion + 1} of {currentQuiz.questions.length}</p>
+                      <h3 style={{ margin: '15px 0 25px 0', fontSize: '1.2rem', lineHeight: '1.5' }}>{q?.question}</h3>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        {q && Object.entries(q.options).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)).map(([key, text]) => (
+                          <button 
+                            key={key}
+                            className="btn btn-secondary" 
+                            style={{ 
+                              textAlign: 'left', 
+                              border: quizAnswers[currentQuestion] === key ? '2px solid var(--primary)' : '1px solid rgba(255,255,255,0.1)',
+                              background: quizAnswers[currentQuestion] === key ? 'rgba(124, 58, 237, 0.15)' : 'rgba(0,0,0,0.2)',
+                              display: 'flex', alignItems: 'center', gap: '15px',
+                              padding: '15px 20px',
+                              fontSize: '1.05rem',
+                              transition: 'all 0.2s ease',
+                              transform: quizAnswers[currentQuestion] === key ? 'scale(1.02)' : 'scale(1)'
+                            }} 
+                            onClick={() => handleAnswerSelect(currentQuestion, key)}
+                          >
+                            <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: quizAnswers[currentQuestion] === key ? 'var(--primary)' : 'rgba(255,255,255,0.1)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.9rem', flexShrink: 0 }}>
+                              {key}
+                            </div>
+                            {text}
+                          </button>
+                        ))}
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '40px' }}>
+                        <button 
+                          className="btn btn-secondary" 
+                          disabled={currentQuestion === 0}
+                          onClick={() => setCurrentQuestion(prev => prev - 1)}
+                          style={{ padding: '10px 20px' }}
+                        >
+                          <i className="fa-solid fa-arrow-left"></i> Previous
+                        </button>
+                        {currentQuestion < currentQuiz.questions.length - 1 ? (
+                          <button 
+                            className="btn btn-primary"
+                            disabled={!quizAnswers[currentQuestion]}
+                            onClick={() => setCurrentQuestion(prev => prev + 1)}
+                            style={{ padding: '10px 30px' }}
+                          >
+                            Next <i className="fa-solid fa-arrow-right"></i>
+                          </button>
+                        ) : (
+                          <button 
+                            className="btn btn-primary"
+                            disabled={!quizAnswers[currentQuestion]}
+                            style={{ padding: '10px 30px' }}
+                            onClick={async () => {
+                              let correct = 0;
+                              let wrong = 0;
+                              currentQuiz.questions.forEach((question, i) => {
+                                if (quizAnswers[i] === question.correctOption) correct++;
+                                else wrong++;
+                              });
+                              const score = Math.round((correct / currentQuiz.questions.length) * 100);
+                              setQuizResults({ correct, wrong, total: currentQuiz.questions.length, score });
+                              
+                              try {
+                                await addDoc(collection(db, 'quiz_results'), {
+                                    studentId: user.uid,
+                                    studentName: user.name || user.email,
+                                    sessionTopic: activeSession.topic,
+                                    quizTitle: isFinalQuiz ? "Final Quiz" : "Section " + (activePartIndex + 1) + " Quiz",
+                                    score: score,
+                                    correct: correct,
+                                    wrong: wrong,
+                                    total: currentQuiz.questions.length,
+                                    averageFocus: focusScore,
+                                    timestamp: new Date().toISOString()
+                                });
+                                if (isFinalQuiz) {
+                                  try {
+                                    await updateDoc(doc(db, 'users', user.uid), {
+                                      completedLessons: arrayUnion(activeSession.id)
+                                    });
+                                  } catch(e) { console.error("Error updating completed lessons", e); }
+                                  setShowConfetti(true);
+                                  toast.success("Lesson Completed Successfully!");
+                                }
+                              } catch (err) {
+                                console.error("Failed to save quiz results", err);
+                                toast.error("Could not save results to database, but you finished!");
+                              }
+                              setQuizState('completed');
+                            }}
+                          >
+                            Submit Quiz <i className="fa-solid fa-check"></i>
+                          </button>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+                      {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} numberOfPieces={500} />}
+                      <div style={{ fontSize: '4rem', color: 'var(--success)', marginBottom: '15px' }}><i className="fa-solid fa-check-circle"></i></div>
+                      <h2 style={{ marginBottom: '15px', fontSize: '2rem' }}>Excellent Work!</h2>
+                      
+                      <div style={{ background: 'rgba(0,0,0,0.3)', padding: '30px', borderRadius: '16px', margin: '20px 0', textAlign: 'center', minWidth: '300px' }}>
+                         <div style={{ fontSize: '3rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '15px' }}>{quizResults?.score}%</div>
+                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                            <div>
+                               <div style={{ fontSize: '1.5rem', color: 'var(--success)', fontWeight: 'bold' }}>{quizResults?.correct}</div>
+                               <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Correct</div>
+                            </div>
+                            <div>
+                               <div style={{ fontSize: '1.5rem', color: 'var(--danger)', fontWeight: 'bold' }}>{quizResults?.wrong}</div>
+                               <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Wrong</div>
+                            </div>
+                         </div>
+                      </div>
+    
+                      {!isFinalQuiz ? (
+                         <button className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }} onClick={() => { 
+                            setActivePartIndex(prev => prev + 1); 
+                            setView('session'); 
+                            setQuizState(null);
+                            setQuizAnswers({});
+                            setCurrentQuestion(0);
+                         }}>Continue to Next Section <i className="fa-solid fa-arrow-right"></i></button>
+                      ) : (
+                         <button className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }} onClick={() => { 
+                            setView('dashboard'); 
+                            setActiveSession(null); 
+                            setShowConfetti(false);
+                         }}>Return to Dashboard</button>
+                      )}
+                     </div>
+                  )}
+                  </div>
+                ) : (
+                  // --- LESSON UI ---
+                  <>
+                  {/* Lesson Header */}
+                  <div style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                     <div>
                      <h3 style={{ margin: 0, color: 'var(--primary)' }}>
                        Section {activePartIndex < (activeSession?.parts?.length || 0) ? activeSession?.parts?.[activePartIndex]?.section : 'Final'}
                      </h3>
@@ -642,7 +797,13 @@ const StudentPortal = () => {
                     <i className="fa-solid fa-flag-checkered" style={{ fontSize: '4rem', color: 'var(--success)', marginBottom: '20px' }}></i>
                     <h2>Lesson Content Completed!</h2>
                     {activeSession?.finalQuiz ? (
-                       <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={() => setView('quiz')}><i className="fa-solid fa-star"></i> Take Final Lesson Quiz</button>
+                       <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={() => {
+                          toast("Final Quiz time! Let's test your knowledge.", { icon: '📝', duration: 5000 });
+                          const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+                          audio.volume = 0.5;
+                          audio.play().catch(e => console.log(e));
+                          setView('quiz');
+                       }}><i className="fa-solid fa-star"></i> Take Final Lesson Quiz</button>
                     ) : (
                        <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={async () => { 
                          // No final quiz, just mark as completed
@@ -658,6 +819,8 @@ const StudentPortal = () => {
                        }}>Finish Session</button>
                     )}
                   </div>
+                )}
+                  </>
                 )}
               </div>
             </div>
@@ -675,154 +838,6 @@ const StudentPortal = () => {
               webcamRef={webcamRef} 
             />
 
-            {/* Chat Widget OR Quiz Panel */}
-            {view === 'quiz' ? (
-              <div className="glass-panel" style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column', minHeight: 0, overflowY: 'auto' }}>
-                 
-              {(!currentQuiz || !currentQuiz.questions || currentQuiz.questions.length === 0) ? (
-                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <p>No quiz available.</p>
-                    <button className="btn btn-primary" onClick={() => { 
-                       if (!isFinalQuiz) { setActivePartIndex(prev => prev + 1); setView('session'); }
-                       else { setView('dashboard'); }
-                    }}>Continue</button>
-                 </div>
-              ) : quizState !== 'completed' ? (
-                <>
-                  <h2 style={{ marginBottom: '20px', fontSize: '1.2rem' }}>{currentQuiz.title || 'Knowledge Check'}</h2>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Question {currentQuestion + 1} of {currentQuiz.questions.length}</p>
-                  <h4 style={{ margin: '15px 0', fontSize: '1rem' }}>{q?.question}</h4>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {q && Object.entries(q.options).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)).map(([key, text]) => (
-                      <button 
-                        key={key}
-                        className="btn btn-secondary" 
-                        style={{ 
-                          textAlign: 'left', 
-                          border: quizAnswers[currentQuestion] === key ? '1px solid var(--primary)' : '1px solid rgba(255,255,255,0.1)',
-                          background: quizAnswers[currentQuestion] === key ? 'rgba(124, 58, 237, 0.2)' : 'transparent',
-                          display: 'flex', alignItems: 'center', gap: '10px',
-                          padding: '10px',
-                          fontSize: '0.9rem'
-                        }} 
-                        onClick={() => handleAnswerSelect(currentQuestion, key)}
-                      >
-                        <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: quizAnswers[currentQuestion] === key ? '#fff' : 'rgba(255,255,255,0.1)', color: quizAnswers[currentQuestion] === key ? 'var(--primary)' : '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.8rem', flexShrink: 0 }}>
-                          {key}
-                        </div>
-                        {text}
-                      </button>
-                    ))}
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-                    <button 
-                      className="btn btn-secondary" 
-                      disabled={currentQuestion === 0}
-                      onClick={() => setCurrentQuestion(prev => prev - 1)}
-                      style={{ padding: '8px 12px', fontSize: '0.85rem' }}
-                    >
-                      Previous
-                    </button>
-                    {currentQuestion < currentQuiz.questions.length - 1 ? (
-                      <button 
-                        className="btn btn-primary"
-                        disabled={!quizAnswers[currentQuestion]}
-                        onClick={() => setCurrentQuestion(prev => prev + 1)}
-                        style={{ padding: '8px 12px', fontSize: '0.85rem' }}
-                      >
-                        Next
-                      </button>
-                    ) : (
-                      <button 
-                        className="btn btn-primary"
-                        disabled={!quizAnswers[currentQuestion]}
-                        style={{ padding: '8px 12px', fontSize: '0.85rem' }}
-                        onClick={async () => {
-                          let correct = 0;
-                          let wrong = 0;
-                          currentQuiz.questions.forEach((question, i) => {
-                            if (quizAnswers[i] === question.correctOption) correct++;
-                            else wrong++;
-                          });
-                          const score = Math.round((correct / currentQuiz.questions.length) * 100);
-                          setQuizResults({ correct, wrong, total: currentQuiz.questions.length, score });
-                          
-                          try {
-                            // Save to Firebase!
-                            await addDoc(collection(db, 'quiz_results'), {
-                                studentId: user.uid,
-                                studentName: user.name || user.email,
-                                sessionTopic: activeSession.topic,
-                                quizTitle: isFinalQuiz ? "Final Quiz" : "Section " + (activePartIndex + 1) + " Quiz",
-                                score: score,
-                                correct: correct,
-                                wrong: wrong,
-                                total: currentQuiz.questions.length,
-                                averageFocus: focusScore,
-                                timestamp: new Date().toISOString()
-                            });
-
-                            if (isFinalQuiz) {
-                              try {
-                                await updateDoc(doc(db, 'users', user.uid), {
-                                  completedLessons: arrayUnion(activeSession.id)
-                                });
-                              } catch(e) { console.error("Error updating completed lessons", e); }
-                              setShowConfetti(true);
-                              toast.success("Lesson Completed Successfully!");
-                            }
-                          } catch (err) {
-                            console.error("Failed to save quiz results", err);
-                            toast.error("Could not save results to database, but you finished!");
-                          }
-                          setQuizState('completed');
-                        }}
-                      >
-                        Finish
-                      </button>
-                    )}
-                  </div>
-                </>
-              ) : (
-                 <>
-                  {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} numberOfPieces={500} />}
-                  <div style={{ fontSize: '3rem', color: 'var(--success)', marginBottom: '15px', textAlign: 'center' }}><i className="fa-solid fa-check-circle"></i></div>
-                  <h2 style={{ marginBottom: '10px', textAlign: 'center', fontSize: '1.2rem' }}>Excellent Work!</h2>
-                  
-                  <div style={{ background: 'rgba(0,0,0,0.3)', padding: '15px', borderRadius: '12px', margin: '15px 0', textAlign: 'center' }}>
-                     <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '10px' }}>{quizResults?.score}%</div>
-                     <div style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
-                        <div>
-                           <div style={{ fontSize: '1rem', color: 'var(--success)', fontWeight: 'bold' }}>{quizResults?.correct}</div>
-                           <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Correct</div>
-                        </div>
-                        <div>
-                           <div style={{ fontSize: '1rem', color: 'var(--danger)', fontWeight: 'bold' }}>{quizResults?.wrong}</div>
-                           <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Wrong</div>
-                        </div>
-                     </div>
-                  </div>
-
-                  {!isFinalQuiz ? (
-                     <button className="btn btn-primary" style={{ width: '100%', padding: '10px' }} onClick={() => { 
-                        setActivePartIndex(prev => prev + 1); 
-                        setView('session'); 
-                        setQuizState(null);
-                        setQuizAnswers({});
-                        setCurrentQuestion(0);
-                     }}>Next Section</button>
-                  ) : (
-                     <button className="btn btn-primary" style={{ width: '100%', padding: '10px' }} onClick={() => { 
-                        setView('dashboard'); 
-                        setActiveSession(null); 
-                        setShowConfetti(false);
-                     }}>Return to Dashboard</button>
-                  )}
-                 </>
-              )}
-
-              </div>
-            ) : (
             <AIChatTutor 
               chatTab={chatTab} 
               setChatTab={setChatTab} 
@@ -834,7 +849,6 @@ const StudentPortal = () => {
               handleSendMessage={handleSendMessage} 
               messagesEndRef={messagesEndRef} 
             />
-            )}
           </div>
         </div>
 
