@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 
     const prompt = `You are an expert educator. Read the following lesson content and generate exactly ONE multiple choice question based on it.
     Return ONLY a valid JSON object in this exact format, with no markdown formatting, no backticks, just the raw JSON:

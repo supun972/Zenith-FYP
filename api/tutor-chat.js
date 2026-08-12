@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 
     const prompt = `You are Zenith, an AI learning tutor. You must respond in a friendly, encouraging, and concise way.
     
