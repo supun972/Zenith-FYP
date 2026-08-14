@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
   try {
     const { content } = req.body;
-    
+
     if (!content) {
       return res.status(400).json({ error: 'Missing content' });
     }
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     // Access the API key securely on the server
     // It should be set as GEMINI_API_KEY in Vercel, but we fallback to VITE_... for local dev compatibility if needed
     const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
-    
+
     if (!apiKey) {
       return res.status(500).json({ error: "Missing Gemini API Key on server" });
     }
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 
     const result = await model.generateContent(prompt);
     const text = await result.response.text();
-    
+
     const cleanedText = text.replace(/\`\`\`json/g, '').replace(/\`\`\`/g, '').trim();
     const quizResult = JSON.parse(cleanedText);
 

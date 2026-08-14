@@ -37,12 +37,12 @@ const StudentPortal = () => {
 
   const isOnBreakRef = useRef(isOnBreak);
   useEffect(() => { isOnBreakRef.current = isOnBreak; }, [isOnBreak]);
-  
+
   const [availableClasses, setAvailableClasses] = useState([]);
   const [assignedSessions, setAssignedSessions] = useState([]);
   const [completedSessionIds, setCompletedSessionIds] = useState([]);
   const [activeSession, setActiveSession] = useState(null);
-  
+
   // Time Selector Modal State
   const [showTimeModal, setShowTimeModal] = useState(false);
   const [selectedSessionToStart, setSelectedSessionToStart] = useState(null);
@@ -76,7 +76,7 @@ const StudentPortal = () => {
       console.error("Zenith Debug - Firebase Error:", error);
     });
 
-    let unsubUser = () => {};
+    let unsubUser = () => { };
     if (user && user.uid) {
       unsubUser = onSnapshot(doc(db, 'users', user.uid), (docSnap) => {
         if (docSnap.exists() && docSnap.data().completedLessons) {
@@ -94,7 +94,7 @@ const StudentPortal = () => {
       unsubUser();
     };
   }, [user]);
-  
+
   // Chat States
   const [chatTab, setChatTab] = useState('ai'); // 'classroom' | 'ai'
   const [aiMessages, setAiMessages] = useState([{ sender: 'ai', text: 'Hi! I am your ZENITH AI Tutor. How can I help you today?' }]);
@@ -105,9 +105,9 @@ const StudentPortal = () => {
   useEffect(() => {
     if (activeSession) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setAiMessages([{ 
-        sender: 'ai', 
-        text: `Hi! I am your ZENITH AI Tutor. I see you are studying ${activeSession.subject} - ${activeSession.topic}. Do you have any questions before we begin?` 
+      setAiMessages([{
+        sender: 'ai',
+        text: `Hi! I am your ZENITH AI Tutor. I see you are studying ${activeSession.subject} - ${activeSession.topic}. Do you have any questions before we begin?`
       }]);
     } else {
       setAiMessages([{ sender: 'ai', text: 'Hi! I am your ZENITH AI Tutor. How can I help you today?' }]);
@@ -151,7 +151,7 @@ const StudentPortal = () => {
           duration: 4000,
           icon: '⚠️'
         });
-        
+
         if (user && user.name) {
           try {
             addDoc(collection(db, 'classroom_messages'), {
@@ -199,7 +199,7 @@ const StudentPortal = () => {
     let timer;
     let focusInterval;
     let isMounted = true;
-    
+
     if (view === 'session' || view === 'quiz') {
       timer = setInterval(() => {
         if (isOnBreakRef.current) {
@@ -222,11 +222,11 @@ const StudentPortal = () => {
           });
         }
       }, 1000);
-      
+
       let isDetecting = false;
       let missedFrames = 0; // Track consecutive missed frames
       let frustrationCount = 0; // Track consecutive negative emotions
-      
+
       focusInterval = setInterval(async () => {
         if (isCameraActive && modelsLoaded && webcamRef.current && webcamRef.current.video) {
           if (webcamRef.current.video.readyState === 4 && !isDetecting) { // Ensure video is ready and not already detecting
@@ -242,39 +242,39 @@ const StudentPortal = () => {
 
               if (detection) {
                 missedFrames = 0; // Reset missed frames when face is found
-                
+
                 // --- Emotion Tracking ---
                 const expressions = detection.expressions;
                 let highestEmotion = 'neutral';
                 let maxVal = 0;
                 for (const [emotion, val] of Object.entries(expressions)) {
-                   if (val > maxVal) { maxVal = val; highestEmotion = emotion; }
+                  if (val > maxVal) { maxVal = val; highestEmotion = emotion; }
                 }
                 setCurrentEmotion(highestEmotion);
-                
+
                 if (highestEmotion === 'sad' || highestEmotion === 'angry' || highestEmotion === 'fearful' || highestEmotion === 'disgusted') {
-                   frustrationCount++;
-                   if (frustrationCount > 4) { // If frustrated for 4+ seconds
-                      frustrationCount = 0; // reset
-                      setChatTab('ai'); // Switch to AI tab
-                      const tutorMsg = "I noticed you're looking a bit confused or frustrated. Do you want me to explain this section differently?";
-                      setAiMessages(prev => [...prev, { sender: 'ai', text: tutorMsg }]);
-                      
-                      // Speak it out!
-                      if ('speechSynthesis' in window) {
-                         const utterance = new SpeechSynthesisUtterance(tutorMsg);
-                         window.speechSynthesis.speak(utterance);
-                      }
-                      
-                      toast('AI Tutor activated due to confusion detected!', { icon: '🤖' });
-                   }
+                  frustrationCount++;
+                  if (frustrationCount > 4) { // If frustrated for 4+ seconds
+                    frustrationCount = 0; // reset
+                    setChatTab('ai'); // Switch to AI tab
+                    const tutorMsg = "I noticed you're looking a bit confused or frustrated. Do you want me to explain this section differently?";
+                    setAiMessages(prev => [...prev, { sender: 'ai', text: tutorMsg }]);
+
+                    // Speak it out!
+                    if ('speechSynthesis' in window) {
+                      const utterance = new SpeechSynthesisUtterance(tutorMsg);
+                      window.speechSynthesis.speak(utterance);
+                    }
+
+                    toast('AI Tutor activated due to confusion detected!', { icon: '🤖' });
+                  }
                 } else {
-                   frustrationCount = Math.max(0, frustrationCount - 1); // Decrease if normal
+                  frustrationCount = Math.max(0, frustrationCount - 1); // Decrease if normal
                 }
 
                 // Face Found! They are looking at the screen.
                 setFocusScore(prev => {
-                  const fluctuation = Math.floor(Math.random() * 3); 
+                  const fluctuation = Math.floor(Math.random() * 3);
                   let newScore = prev + 8 + fluctuation; // Climb up faster if face detected
                   return newScore > 98 ? 98 : Math.floor(newScore);
                 });
@@ -296,11 +296,11 @@ const StudentPortal = () => {
             }
           }
         } else if (!isCameraActive && view === 'session') {
-           if (isMounted) setFocusScore(0);
+          if (isMounted) setFocusScore(0);
         }
       }, 1000); // Check every second for better real-time feel
     }
-    
+
     return () => {
       isMounted = false;
       clearInterval(timer);
@@ -317,17 +317,17 @@ const StudentPortal = () => {
       setAiMessages(prev => [...prev, { sender: 'user', text: userText }]);
       setInputValue('');
       setIsAiTyping(true);
-      
+
       try {
         let text = "";
-        
+
         try {
-          const currentContext = activeSession 
+          const currentContext = activeSession
             ? `The student is currently studying: ${activeSession.subject} - ${activeSession.topic}.`
             : 'The student is on the main dashboard and not currently in a specific lesson.';
-            
+
           const conversationContext = aiMessages.slice(-6).map(msg => `${msg.sender === 'ai' ? 'Tutor' : 'Student'}: ${msg.text}`).join('\n');
-          
+
           const response = await fetch('/api/tutor-chat', {
             method: 'POST',
             headers: {
@@ -383,8 +383,8 @@ const StudentPortal = () => {
       if (isReadingAloud) {
         window.speechSynthesis.cancel();
         if (window.currentGoogleAudio) {
-           window.currentGoogleAudio.pause();
-           window.currentGoogleAudio = null;
+          window.currentGoogleAudio.pause();
+          window.currentGoogleAudio = null;
         }
         setIsReadingAloud(false);
         setIsOcrProcessing(false);
@@ -393,35 +393,35 @@ const StudentPortal = () => {
         const rawContent = currentPart.content;
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = rawContent;
-        
+
         let finalSpeakingText = tempDiv.textContent || tempDiv.innerText || "";
-        
+
         // Find all images to OCR
         const images = tempDiv.querySelectorAll('img');
         if (images.length > 0) {
           setIsOcrProcessing(true);
           try {
-             let ocrText = '';
-             // We use a toast to let them know OCR started (might take 2-4 seconds)
-             const toastId = toast.loading("AI is scanning the image text...");
-             
-             for (const img of images) {
-                const src = img.getAttribute('src');
-                if (src) {
-                   const { data: { text } } = await Tesseract.recognize(
-                     src,
-                     'sin', // Sinhala Language Model!
-                     { logger: m => console.log(m) }
-                   );
-                   ocrText += " " + text;
-                }
-             }
-             toast.dismiss(toastId);
-             finalSpeakingText += " " + ocrText;
+            let ocrText = '';
+            // We use a toast to let them know OCR started (might take 2-4 seconds)
+            const toastId = toast.loading("AI is scanning the image text...");
+
+            for (const img of images) {
+              const src = img.getAttribute('src');
+              if (src) {
+                const { data: { text } } = await Tesseract.recognize(
+                  src,
+                  'sin', // Sinhala Language Model!
+                  { logger: m => console.log(m) }
+                );
+                ocrText += " " + text;
+              }
+            }
+            toast.dismiss(toastId);
+            finalSpeakingText += " " + ocrText;
           } catch (err) {
-             console.error("OCR Error:", err);
-             toast.dismiss();
-             toast.error("Failed to read image text.");
+            console.error("OCR Error:", err);
+            toast.dismiss();
+            toast.error("Failed to read image text.");
           }
           setIsOcrProcessing(false);
         }
@@ -431,72 +431,72 @@ const StudentPortal = () => {
         // Check for Sinhala voice in browser
         const voices = window.speechSynthesis.getVoices();
         const sinhalaVoice = voices.find(v => v.lang.includes('si') || v.lang.includes('sin') || v.name.toLowerCase().includes('sinhala'));
-        
+
         if (sinhalaVoice) {
-           const utterance = new SpeechSynthesisUtterance(finalSpeakingText);
-           utterance.lang = 'si-LK';
-           utterance.voice = sinhalaVoice;
-           utterance.rate = 0.9;
-           utterance.onend = () => setIsReadingAloud(false);
-           window.speechSynthesis.speak(utterance);
-           setIsReadingAloud(true);
+          const utterance = new SpeechSynthesisUtterance(finalSpeakingText);
+          utterance.lang = 'si-LK';
+          utterance.voice = sinhalaVoice;
+          utterance.rate = 0.9;
+          utterance.onend = () => setIsReadingAloud(false);
+          window.speechSynthesis.speak(utterance);
+          setIsReadingAloud(true);
         } else {
-           // FALLBACK: Google Cloud TTS via Audio URL
-           console.log("No local Sinhala voice. Using Google Cloud Voice...");
-           try {
-              // Split text into chunks of max 150 chars to avoid Google TTS 400 Bad Request (200 char limit)
-              const textChunks = [];
-              let currentStr = finalSpeakingText;
-              while (currentStr.length > 0) {
-                 textChunks.push(currentStr.substring(0, 150));
-                 currentStr = currentStr.substring(150);
+          // FALLBACK: Google Cloud TTS via Audio URL
+          console.log("No local Sinhala voice. Using Google Cloud Voice...");
+          try {
+            // Split text into chunks of max 150 chars to avoid Google TTS 400 Bad Request (200 char limit)
+            const textChunks = [];
+            let currentStr = finalSpeakingText;
+            while (currentStr.length > 0) {
+              textChunks.push(currentStr.substring(0, 150));
+              currentStr = currentStr.substring(150);
+            }
+
+            let currentChunk = 0;
+            const playNextChunk = async () => {
+              if (currentChunk >= textChunks.length) {
+                setIsReadingAloud(false);
+                return;
               }
-              
-              let currentChunk = 0;
-              const playNextChunk = async () => {
-                 if (currentChunk >= textChunks.length) {
-                    setIsReadingAloud(false);
-                    return;
-                 }
-                 try {
-                    const audioUrl = `/api/tts?ie=UTF-8&q=${encodeURIComponent(textChunks[currentChunk])}&tl=si&client=gtx`;
-                    const response = await fetch(audioUrl, { referrerPolicy: "no-referrer" });
-                    if (!response.ok) {
-                       throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    const blob = await response.blob();
-                    const blobUrl = URL.createObjectURL(blob);
-                    
-                    const audio = new Audio(blobUrl);
-                    audio.onended = () => {
-                       URL.revokeObjectURL(blobUrl);
-                       currentChunk++;
-                       playNextChunk();
-                    };
-                    audio.onerror = (e) => {
-                       console.error("Audio playback failed", e);
-                       setIsReadingAloud(false);
-                       toast.error("Cloud Voice Playback Error");
-                    };
-                    window.currentGoogleAudio = audio;
-                    audio.play();
-                 } catch (err) {
-                    console.error("Google TTS Fetch failed:", err);
-                    setIsReadingAloud(false);
-                    toast.error("Cloud Voice Error: " + err.message);
-                 }
-              };
-              
-              playNextChunk();
-              setIsReadingAloud(true);
-           } catch (e) {
-              console.error("Cloud TTS error:", e);
-              setIsReadingAloud(false);
-           }
+              try {
+                const audioUrl = `/api/tts?ie=UTF-8&q=${encodeURIComponent(textChunks[currentChunk])}&tl=si&client=gtx`;
+                const response = await fetch(audioUrl, { referrerPolicy: "no-referrer" });
+                if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const blob = await response.blob();
+                const blobUrl = URL.createObjectURL(blob);
+
+                const audio = new Audio(blobUrl);
+                audio.onended = () => {
+                  URL.revokeObjectURL(blobUrl);
+                  currentChunk++;
+                  playNextChunk();
+                };
+                audio.onerror = (e) => {
+                  console.error("Audio playback failed", e);
+                  setIsReadingAloud(false);
+                  toast.error("Cloud Voice Playback Error");
+                };
+                window.currentGoogleAudio = audio;
+                audio.play();
+              } catch (err) {
+                console.error("Google TTS Fetch failed:", err);
+                setIsReadingAloud(false);
+                toast.error("Cloud Voice Error: " + err.message);
+              }
+            };
+
+            playNextChunk();
+            setIsReadingAloud(true);
+          } catch (e) {
+            console.error("Cloud TTS error:", e);
+            setIsReadingAloud(false);
+          }
         }
       }
     } else {
-       toast.error("Text to speech not supported in this browser.");
+      toast.error("Text to speech not supported in this browser.");
     }
   };
 
@@ -527,7 +527,7 @@ const StudentPortal = () => {
         toast.error("Error: No session selected!");
         return;
       }
-      
+
       setActiveSession({ ...session, duration: minutes });
       setActivePartIndex(0);
       setQuizAnswers({});
@@ -572,11 +572,11 @@ const StudentPortal = () => {
         {/* MANDATORY BREAK OVERLAY */}
         {isOnBreak && (
           <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(6, 6, 18, 0.95)', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(20px)' }}>
-             <i className="fa-solid fa-mug-hot" style={{ fontSize: '6rem', color: 'var(--secondary)', marginBottom: '30px', animation: 'pulse 2s infinite' }}></i>
-             <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>Brain Break Time!</h2>
-             <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '40px', maxWidth: '600px', textAlign: 'center' }}>You've been focusing hard for 30 minutes. Taking a short break reduces mental fatigue and improves retention.</p>
-             <div style={{ fontSize: '5rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '40px' }}>{formatTime(breakTimeLeft)}</div>
-             <button className="btn btn-secondary" onClick={() => { setIsOnBreak(false); setBreakTimeLeft(300); setTimeLeft(prev => prev - 1); }}>Resume Session Early</button>
+            <i className="fa-solid fa-mug-hot" style={{ fontSize: '6rem', color: 'var(--secondary)', marginBottom: '30px', animation: 'pulse 2s infinite' }}></i>
+            <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>Brain Break Time!</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '40px', maxWidth: '600px', textAlign: 'center' }}>You've been focusing hard for 30 minutes. Taking a short break reduces mental fatigue and improves retention.</p>
+            <div style={{ fontSize: '5rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '40px' }}>{formatTime(breakTimeLeft)}</div>
+            <button className="btn btn-secondary" onClick={() => { setIsOnBreak(false); setBreakTimeLeft(300); setTimeLeft(prev => prev - 1); }}>Resume Session Early</button>
           </div>
         )}
 
@@ -587,36 +587,36 @@ const StudentPortal = () => {
               <button className="btn btn-primary" style={{ padding: '5px 15px', fontSize: '0.9rem' }}><i className="fa-solid fa-file-pdf"></i> Lesson Notes</button>
               <button className="btn btn-secondary" style={{ padding: '5px 15px', fontSize: '0.9rem' }}><i className="fa-solid fa-video"></i> Video Lecture</button>
             </div>
-              <div 
-                style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '30px', overflowY: 'auto', maxHeight: '65vh', color: 'var(--text)', lineHeight: '1.8', position: 'relative' }}
-                onScroll={(e) => {
-                  const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 20;
-                  if (bottom) {
-                     const isFinalPart = activePartIndex >= (activeSession?.parts?.length || 0);
-                     if (!isFinalPart && activeSession?.parts?.[activePartIndex]?.quiz) {
-                        if (view !== 'quiz') {
-                          // Play a simple notification sound
-                          const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-                          audio.volume = 0.5;
-                          audio.play().catch(e => console.log('Audio play failed', e));
-                          toast("Quiz time! Let's test your knowledge.", { icon: '📝', duration: 5000 });
-                        }
-                        setView('quiz');
-                     }
+            <div
+              style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '30px', overflowY: 'auto', maxHeight: '65vh', color: 'var(--text)', lineHeight: '1.8', position: 'relative' }}
+              onScroll={(e) => {
+                const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 20;
+                if (bottom) {
+                  const isFinalPart = activePartIndex >= (activeSession?.parts?.length || 0);
+                  if (!isFinalPart && activeSession?.parts?.[activePartIndex]?.quiz) {
+                    if (view !== 'quiz') {
+                      // Play a simple notification sound
+                      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+                      audio.volume = 0.5;
+                      audio.play().catch(e => console.log('Audio play failed', e));
+                      toast("Quiz time! Let's test your knowledge.", { icon: '📝', duration: 5000 });
+                    }
+                    setView('quiz');
                   }
-                }}
-              >
-                {view === 'quiz' ? (
-                  // --- QUIZ UI ---
-                  <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                }
+              }}
+            >
+              {view === 'quiz' ? (
+                // --- QUIZ UI ---
+                <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', height: '100%' }}>
                   {(!currentQuiz || !currentQuiz.questions || currentQuiz.questions.length === 0) ? (
-                     <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                        <p>No quiz available.</p>
-                        <button className="btn btn-primary" onClick={() => { 
-                           if (!isFinalQuiz) { setActivePartIndex(prev => prev + 1); setView('session'); }
-                           else { setView('dashboard'); }
-                        }}>Continue</button>
-                     </div>
+                    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                      <p>No quiz available.</p>
+                      <button className="btn btn-primary" onClick={() => {
+                        if (!isFinalQuiz) { setActivePartIndex(prev => prev + 1); setView('session'); }
+                        else { setView('dashboard'); }
+                      }}>Continue</button>
+                    </div>
                   ) : quizState !== 'completed' ? (
                     <>
                       <h2 style={{ marginBottom: '20px', fontSize: '1.5rem', color: 'var(--primary)' }}>{currentQuiz.title || 'Knowledge Check'}</h2>
@@ -624,11 +624,11 @@ const StudentPortal = () => {
                       <h3 style={{ margin: '15px 0 25px 0', fontSize: '1.2rem', lineHeight: '1.5' }}>{q?.question}</h3>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         {q && Object.entries(q.options).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)).map(([key, text]) => (
-                          <button 
+                          <button
                             key={key}
-                            className="btn btn-secondary" 
-                            style={{ 
-                              textAlign: 'left', 
+                            className="btn btn-secondary"
+                            style={{
+                              textAlign: 'left',
                               border: quizAnswers[currentQuestion] === key ? '2px solid var(--primary)' : '1px solid rgba(255,255,255,0.1)',
                               background: quizAnswers[currentQuestion] === key ? 'rgba(124, 58, 237, 0.15)' : 'rgba(0,0,0,0.2)',
                               display: 'flex', alignItems: 'center', gap: '15px',
@@ -636,7 +636,7 @@ const StudentPortal = () => {
                               fontSize: '1.05rem',
                               transition: 'all 0.2s ease',
                               transform: quizAnswers[currentQuestion] === key ? 'scale(1.02)' : 'scale(1)'
-                            }} 
+                            }}
                             onClick={() => handleAnswerSelect(currentQuestion, key)}
                           >
                             <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: quizAnswers[currentQuestion] === key ? 'var(--primary)' : 'rgba(255,255,255,0.1)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.9rem', flexShrink: 0 }}>
@@ -647,8 +647,8 @@ const StudentPortal = () => {
                         ))}
                       </div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '40px' }}>
-                        <button 
-                          className="btn btn-secondary" 
+                        <button
+                          className="btn btn-secondary"
                           disabled={currentQuestion === 0}
                           onClick={() => setCurrentQuestion(prev => prev - 1)}
                           style={{ padding: '10px 20px' }}
@@ -656,7 +656,7 @@ const StudentPortal = () => {
                           <i className="fa-solid fa-arrow-left"></i> Previous
                         </button>
                         {currentQuestion < currentQuiz.questions.length - 1 ? (
-                          <button 
+                          <button
                             className="btn btn-primary"
                             disabled={!quizAnswers[currentQuestion]}
                             onClick={() => setCurrentQuestion(prev => prev + 1)}
@@ -665,7 +665,7 @@ const StudentPortal = () => {
                             Next <i className="fa-solid fa-arrow-right"></i>
                           </button>
                         ) : (
-                          <button 
+                          <button
                             className="btn btn-primary"
                             disabled={!quizAnswers[currentQuestion]}
                             style={{ padding: '10px 30px' }}
@@ -678,26 +678,26 @@ const StudentPortal = () => {
                               });
                               const score = Math.round((correct / currentQuiz.questions.length) * 100);
                               setQuizResults({ correct, wrong, total: currentQuiz.questions.length, score });
-                              
+
                               try {
                                 await addDoc(collection(db, 'quiz_results'), {
-                                    studentId: user.uid,
-                                    studentName: user.name || user.email,
-                                    sessionTopic: activeSession.topic,
-                                    quizTitle: isFinalQuiz ? "Final Quiz" : "Section " + (activePartIndex + 1) + " Quiz",
-                                    score: score,
-                                    correct: correct,
-                                    wrong: wrong,
-                                    total: currentQuiz.questions.length,
-                                    averageFocus: focusScore,
-                                    timestamp: new Date().toISOString()
+                                  studentId: user.uid,
+                                  studentName: user.name || user.email,
+                                  sessionTopic: activeSession.topic,
+                                  quizTitle: isFinalQuiz ? "Final Quiz" : "Section " + (activePartIndex + 1) + " Quiz",
+                                  score: score,
+                                  correct: correct,
+                                  wrong: wrong,
+                                  total: currentQuiz.questions.length,
+                                  averageFocus: focusScore,
+                                  timestamp: new Date().toISOString()
                                 });
                                 if (isFinalQuiz) {
                                   try {
                                     await updateDoc(doc(db, 'users', user.uid), {
                                       completedLessons: arrayUnion(activeSession.id)
                                     });
-                                  } catch(e) { console.error("Error updating completed lessons", e); }
+                                  } catch (e) { console.error("Error updating completed lessons", e); }
                                   setShowConfetti(true);
                                   toast.success("Lesson Completed Successfully!");
                                 }
@@ -714,140 +714,140 @@ const StudentPortal = () => {
                       </div>
                     </>
                   ) : (
-                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
                       {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} numberOfPieces={500} />}
                       <div style={{ fontSize: '4rem', color: 'var(--success)', marginBottom: '15px' }}><i className="fa-solid fa-check-circle"></i></div>
                       <h2 style={{ marginBottom: '15px', fontSize: '2rem' }}>Excellent Work!</h2>
-                      
+
                       <div style={{ background: 'rgba(0,0,0,0.3)', padding: '30px', borderRadius: '16px', margin: '20px 0', textAlign: 'center', minWidth: '300px' }}>
-                         <div style={{ fontSize: '3rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '15px' }}>{quizResults?.score}%</div>
-                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                            <div>
-                               <div style={{ fontSize: '1.5rem', color: 'var(--success)', fontWeight: 'bold' }}>{quizResults?.correct}</div>
-                               <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Correct</div>
-                            </div>
-                            <div>
-                               <div style={{ fontSize: '1.5rem', color: 'var(--danger)', fontWeight: 'bold' }}>{quizResults?.wrong}</div>
-                               <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Wrong</div>
-                            </div>
-                         </div>
+                        <div style={{ fontSize: '3rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '15px' }}>{quizResults?.score}%</div>
+                        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                          <div>
+                            <div style={{ fontSize: '1.5rem', color: 'var(--success)', fontWeight: 'bold' }}>{quizResults?.correct}</div>
+                            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Correct</div>
+                          </div>
+                          <div>
+                            <div style={{ fontSize: '1.5rem', color: 'var(--danger)', fontWeight: 'bold' }}>{quizResults?.wrong}</div>
+                            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Wrong</div>
+                          </div>
+                        </div>
                       </div>
-    
+
                       {!isFinalQuiz ? (
-                         <button className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }} onClick={() => { 
-                            setActivePartIndex(prev => prev + 1); 
-                            setView('session'); 
-                            setQuizState(null);
-                            setQuizAnswers({});
-                            setCurrentQuestion(0);
-                         }}>Continue to Next Section <i className="fa-solid fa-arrow-right"></i></button>
+                        <button className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }} onClick={() => {
+                          setActivePartIndex(prev => prev + 1);
+                          setView('session');
+                          setQuizState(null);
+                          setQuizAnswers({});
+                          setCurrentQuestion(0);
+                        }}>Continue to Next Section <i className="fa-solid fa-arrow-right"></i></button>
                       ) : (
-                         <button className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }} onClick={() => { 
-                            setView('dashboard'); 
-                            setActiveSession(null); 
-                            setShowConfetti(false);
-                         }}>Return to Dashboard</button>
+                        <button className="btn btn-primary" style={{ padding: '15px 40px', fontSize: '1.1rem' }} onClick={() => {
+                          setView('dashboard');
+                          setActiveSession(null);
+                          setShowConfetti(false);
+                        }}>Return to Dashboard</button>
                       )}
-                     </div>
+                    </div>
                   )}
-                  </div>
-                ) : (
-                  // --- LESSON UI ---
-                  <>
+                </div>
+              ) : (
+                // --- LESSON UI ---
+                <>
                   {/* Lesson Header */}
                   <div style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                     <div>
-                     <h3 style={{ margin: 0, color: 'var(--primary)' }}>
-                       Section {activePartIndex < (activeSession?.parts?.length || 0) ? activeSession?.parts?.[activePartIndex]?.section : 'Final'}
-                     </h3>
-                     <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Scroll to the bottom of this section to unlock the quiz.</div>
-                   </div>
-                   {activePartIndex < (activeSession?.parts?.length || 0) && (
-                     <button className="btn btn-secondary" onClick={handleReadAloud} disabled={isOcrProcessing} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 15px', fontSize: '0.9rem' }}>
-                       {isOcrProcessing ? <><i className="fa-solid fa-spinner fa-spin"></i> AI Scanning...</> : isReadingAloud ? <><i className="fa-solid fa-volume-xmark"></i> Stop Audio</> : <><i className="fa-solid fa-volume-high"></i> Read Aloud</>}
-                     </button>
-                   )}
-                </div>
-
-                {activePartIndex < (activeSession?.parts?.length || 0) ? (
-                  <div style={{ position: 'relative' }}>
-                    {/* Distraction Blur Overlay */}
-                    {isCameraActive && focusScore < 50 && (
-                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(6, 6, 18, 0.7)', zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '12px', backdropFilter: 'blur(3px)' }}>
-                        <i className="fa-solid fa-eye" style={{ fontSize: '4rem', color: 'var(--danger)', marginBottom: '15px', animation: 'pulse 1s infinite' }}></i>
-                        <h2 style={{ color: 'var(--danger)', margin: 0 }}>Reading Paused</h2>
-                        <p style={{ color: 'white', marginTop: '10px' }}>Please look back at the screen to continue reading.</p>
-                      </div>
+                    <div>
+                      <h3 style={{ margin: 0, color: 'var(--primary)' }}>
+                        Section {activePartIndex < (activeSession?.parts?.length || 0) ? activeSession?.parts?.[activePartIndex]?.section : 'Final'}
+                      </h3>
+                      <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Scroll to the bottom of this section to unlock the quiz.</div>
+                    </div>
+                    {activePartIndex < (activeSession?.parts?.length || 0) && (
+                      <button className="btn btn-secondary" onClick={handleReadAloud} disabled={isOcrProcessing} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 15px', fontSize: '0.9rem' }}>
+                        {isOcrProcessing ? <><i className="fa-solid fa-spinner fa-spin"></i> AI Scanning...</> : isReadingAloud ? <><i className="fa-solid fa-volume-xmark"></i> Stop Audio</> : <><i className="fa-solid fa-volume-high"></i> Read Aloud</>}
+                      </button>
                     )}
-                    
-                    <div style={{ filter: isCameraActive && focusScore < 50 ? 'blur(8px)' : 'none', transition: 'filter 0.3s ease', opacity: isCameraActive && focusScore < 50 ? 0.5 : 1 }}>
-                      <div dangerouslySetInnerHTML={{ __html: activeSession?.parts?.[activePartIndex]?.content || '<p>No content available.</p>' }} className="lesson-content" />
-                      <div style={{ textAlign: 'center', marginTop: '40px', padding: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', clear: 'both' }}>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '15px' }}>You have reached the end of this section.</p>
-                        {activeSession?.parts?.[activePartIndex]?.quiz ? (
-                          <button className="btn btn-primary" onClick={() => setView('quiz')} disabled={view === 'quiz'}><i className="fa-solid fa-play"></i> {view === 'quiz' ? 'Quiz in Progress ->' : 'Take Section Quiz'}</button>
-                        ) : (
-                          <button className="btn btn-primary" onClick={() => setActivePartIndex(prev => prev + 1)}>Continue to Next Section <i className="fa-solid fa-arrow-right"></i></button>
-                        )}
+                  </div>
+
+                  {activePartIndex < (activeSession?.parts?.length || 0) ? (
+                    <div style={{ position: 'relative' }}>
+                      {/* Distraction Blur Overlay */}
+                      {isCameraActive && focusScore < 50 && (
+                        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(6, 6, 18, 0.7)', zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '12px', backdropFilter: 'blur(3px)' }}>
+                          <i className="fa-solid fa-eye" style={{ fontSize: '4rem', color: 'var(--danger)', marginBottom: '15px', animation: 'pulse 1s infinite' }}></i>
+                          <h2 style={{ color: 'var(--danger)', margin: 0 }}>Reading Paused</h2>
+                          <p style={{ color: 'white', marginTop: '10px' }}>Please look back at the screen to continue reading.</p>
+                        </div>
+                      )}
+
+                      <div style={{ filter: isCameraActive && focusScore < 50 ? 'blur(8px)' : 'none', transition: 'filter 0.3s ease', opacity: isCameraActive && focusScore < 50 ? 0.5 : 1 }}>
+                        <div dangerouslySetInnerHTML={{ __html: activeSession?.parts?.[activePartIndex]?.content || '<p>No content available.</p>' }} className="lesson-content" />
+                        <div style={{ textAlign: 'center', marginTop: '40px', padding: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', clear: 'both' }}>
+                          <p style={{ color: 'var(--text-muted)', marginBottom: '15px' }}>You have reached the end of this section.</p>
+                          {activeSession?.parts?.[activePartIndex]?.quiz ? (
+                            <button className="btn btn-primary" onClick={() => setView('quiz')} disabled={view === 'quiz'}><i className="fa-solid fa-play"></i> {view === 'quiz' ? 'Quiz in Progress ->' : 'Take Section Quiz'}</button>
+                          ) : (
+                            <button className="btn btn-primary" onClick={() => setActivePartIndex(prev => prev + 1)}>Continue to Next Section <i className="fa-solid fa-arrow-right"></i></button>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                    <i className="fa-solid fa-flag-checkered" style={{ fontSize: '4rem', color: 'var(--success)', marginBottom: '20px' }}></i>
-                    <h2>Lesson Content Completed!</h2>
-                    {activeSession?.finalQuiz ? (
-                       <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={() => {
+                  ) : (
+                    <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                      <i className="fa-solid fa-flag-checkered" style={{ fontSize: '4rem', color: 'var(--success)', marginBottom: '20px' }}></i>
+                      <h2>Lesson Content Completed!</h2>
+                      {activeSession?.finalQuiz ? (
+                        <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={() => {
                           toast("Final Quiz time! Let's test your knowledge.", { icon: '📝', duration: 5000 });
                           const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
                           audio.volume = 0.5;
                           audio.play().catch(e => console.log(e));
                           setView('quiz');
-                       }}><i className="fa-solid fa-star"></i> Take Final Lesson Quiz</button>
-                    ) : (
-                       <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={async () => { 
-                         // No final quiz, just mark as completed
-                         try {
-                           await updateDoc(doc(db, 'users', user.uid), {
-                             completedLessons: arrayUnion(activeSession.id)
-                           });
-                           toast.success("Lesson Completed!");
-                         } catch (e) {
-                           console.error(e);
-                         }
-                         setView('dashboard'); 
-                       }}>Finish Session</button>
-                    )}
-                  </div>
-                )}
-                  </>
-                )}
-              </div>
+                        }}><i className="fa-solid fa-star"></i> Take Final Lesson Quiz</button>
+                      ) : (
+                        <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={async () => {
+                          // No final quiz, just mark as completed
+                          try {
+                            await updateDoc(doc(db, 'users', user.uid), {
+                              completedLessons: arrayUnion(activeSession.id)
+                            });
+                            toast.success("Lesson Completed!");
+                          } catch (e) {
+                            console.error(e);
+                          }
+                          setView('dashboard');
+                        }}>Finish Session</button>
+                      )}
+                    </div>
+                  )}
+                </>
+              )}
             </div>
+          </div>
 
           {/* Right Sidebar - AI Tools & Chat */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '800px' }}>
-            <FocusTracker 
-              modelsLoaded={modelsLoaded} 
-              modelError={modelError} 
-              focusScore={focusScore} 
-              currentEmotion={currentEmotion} 
-              isCameraActive={isCameraActive} 
-              handleUserMedia={handleUserMedia} 
-              handleUserMediaError={handleUserMediaError} 
-              webcamRef={webcamRef} 
+            <FocusTracker
+              modelsLoaded={modelsLoaded}
+              modelError={modelError}
+              focusScore={focusScore}
+              currentEmotion={currentEmotion}
+              isCameraActive={isCameraActive}
+              handleUserMedia={handleUserMedia}
+              handleUserMediaError={handleUserMediaError}
+              webcamRef={webcamRef}
             />
 
-            <AIChatTutor 
-              chatTab={chatTab} 
-              setChatTab={setChatTab} 
-              aiMessages={aiMessages} 
-              classroomMessages={classroomMessages} 
-              isAiTyping={isAiTyping} 
-              inputValue={inputValue} 
-              setInputValue={setInputValue} 
-              handleSendMessage={handleSendMessage} 
-              messagesEndRef={messagesEndRef} 
+            <AIChatTutor
+              chatTab={chatTab}
+              setChatTab={setChatTab}
+              aiMessages={aiMessages}
+              classroomMessages={classroomMessages}
+              isAiTyping={isAiTyping}
+              inputValue={inputValue}
+              setInputValue={setInputValue}
+              handleSendMessage={handleSendMessage}
+              messagesEndRef={messagesEndRef}
             />
           </div>
         </div>
@@ -870,7 +870,7 @@ const StudentPortal = () => {
   // DASHBOARD VIEW
   return (
     <div className="container" style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '40px' }}>
-      
+
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '30px' }}>
         <div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '5px' }}>Welcome back, <span className="gradient-text">{user?.name || 'Student'}</span>!</h1>
@@ -912,21 +912,21 @@ const StudentPortal = () => {
           <h2 style={{ fontSize: '1.5rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <i className="fa-solid fa-list-check" style={{ color: 'var(--primary)' }}></i> Assigned Study Sessions
           </h2>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '30px' }}>
-            {assignedSessions.filter(s => !(completedSessionIds || []).includes(s.id)).length > 0 ? 
+            {assignedSessions.filter(s => !(completedSessionIds || []).includes(s.id)).length > 0 ?
               assignedSessions.filter(s => !(completedSessionIds || []).includes(s.id)).map((session) => (
-              <div key={session.id} className="glass-panel" style={{ padding: '20px', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderLeft: '4px solid var(--primary)' }}>
-                <div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 'bold', marginBottom: '5px', textTransform: 'uppercase' }}>{session.subject}</div>
-                  <h3 style={{ fontSize: '1.2rem', marginBottom: '5px' }}>{session.topic}</h3>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}><i className="fa-regular fa-clock"></i> Est. {session.duration} Minutes • Assigned by {session.teacherName}</div>
+                <div key={session.id} className="glass-panel" style={{ padding: '20px', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderLeft: '4px solid var(--primary)' }}>
+                  <div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 'bold', marginBottom: '5px', textTransform: 'uppercase' }}>{session.subject}</div>
+                    <h3 style={{ fontSize: '1.2rem', marginBottom: '5px' }}>{session.topic}</h3>
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}><i className="fa-regular fa-clock"></i> Est. {session.duration} Minutes • Assigned by {session.teacherName}</div>
+                  </div>
+                  <button className="btn btn-primary" onClick={() => handleStartSessionClick(session)} style={{ padding: '10px 20px' }}>Start Session <i className="fa-solid fa-play" style={{ marginLeft: '5px' }}></i></button>
                 </div>
-                <button className="btn btn-primary" onClick={() => handleStartSessionClick(session)} style={{ padding: '10px 20px' }}>Start Session <i className="fa-solid fa-play" style={{ marginLeft: '5px' }}></i></button>
-              </div>
-            )) : (
-              <div style={{ textAlign: 'center', padding: '20px', color: 'var(--text-muted)' }}>No pending study sessions! Great job.</div>
-            )}
+              )) : (
+                <div style={{ textAlign: 'center', padding: '20px', color: 'var(--text-muted)' }}>No pending study sessions! Great job.</div>
+              )}
           </div>
 
           {(completedSessionIds || []).length > 0 && (
@@ -960,7 +960,7 @@ const StudentPortal = () => {
           <h2 style={{ fontSize: '1.5rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <i className="fa-solid fa-calendar-day" style={{ color: 'var(--secondary)' }}></i> Upcoming Classes
           </h2>
-          
+
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '12px' }}>
             {availableClasses.length > 0 ? (
               availableClasses.map((cls) => (
@@ -991,14 +991,14 @@ const StudentPortal = () => {
           <div className="glass-panel" style={{ padding: '30px', borderRadius: '16px', maxWidth: '400px', width: '90%', textAlign: 'center', animation: 'slideUp 0.3s ease-out' }}>
             <h2 style={{ marginBottom: '10px' }}><i className="fa-solid fa-stopwatch" style={{ color: 'var(--primary)' }}></i> Study Goal</h2>
             <p style={{ color: 'var(--text-muted)', marginBottom: '25px' }}>How long do you plan to study this lesson today?</p>
-            
+
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '25px' }}>
-               <button className="btn btn-secondary" onClick={() => confirmStartSession(15)}>15 Minutes</button>
-               <button className="btn btn-secondary" onClick={() => confirmStartSession(30)}>30 Minutes</button>
-               <button className="btn btn-secondary" onClick={() => confirmStartSession(45)}>45 Minutes</button>
-               <button className="btn btn-secondary" onClick={() => confirmStartSession(60)}>60 Minutes</button>
+              <button className="btn btn-secondary" onClick={() => confirmStartSession(15)}>15 Minutes</button>
+              <button className="btn btn-secondary" onClick={() => confirmStartSession(30)}>30 Minutes</button>
+              <button className="btn btn-secondary" onClick={() => confirmStartSession(45)}>45 Minutes</button>
+              <button className="btn btn-secondary" onClick={() => confirmStartSession(60)}>60 Minutes</button>
             </div>
-            
+
             <button className="btn btn-primary" onClick={() => setShowTimeModal(false)} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)' }}>Cancel</button>
           </div>
         </div>
