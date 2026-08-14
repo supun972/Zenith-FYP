@@ -88,7 +88,7 @@ const TeacherDashboard = () => {
         if (focus < 50) status = 'distracted';
         else if (focus < 75) status = 'warning';
         
-        activeStuds.push({ id: doc.id, name: data.name, focus, status, completedLessons: data.completedLessons || [] });
+        activeStuds.push({ id: doc.id, name: data.name, focus, status, completedLessons: data.completedLessons || [], activeClassCode: data.activeClassCode });
       });
       
       setStudents(activeStuds);
@@ -402,7 +402,8 @@ const TeacherDashboard = () => {
   };
 
   if (view === 'live-class') {
-    const avgFocus = students.length > 0 ? Math.round(students.reduce((acc, curr) => acc + curr.focus, 0) / students.length) : 100;
+    const liveStudents = students.filter(s => s.activeClassCode === activeCode);
+    const avgFocus = liveStudents.length > 0 ? Math.round(liveStudents.reduce((acc, curr) => acc + curr.focus, 0) / liveStudents.length) : 100;
     
     return (
       <div className="container" style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '40px' }}>
@@ -427,10 +428,10 @@ const TeacherDashboard = () => {
           {/* Left Area - Student Grid */}
           <div>
             <h3 style={{ marginBottom: '15px', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <i className="fa-solid fa-users" style={{ color: 'var(--primary)' }}></i> {t('teacher.live_grid')} ({students.length})
+              <i className="fa-solid fa-users" style={{ color: 'var(--primary)' }}></i> {t('teacher.live_grid')} ({liveStudents.length})
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '15px' }}>
-              {students.map(student => (
+              {liveStudents.map(student => (
                 <div key={student.id} className="glass-panel" style={{ padding: '15px', textAlign: 'center', borderRadius: '12px', transition: 'all 0.3s ease', borderTop: `3px solid ${getBorderColor(student.status)}` }}>
                   <div style={{ width: '60px', height: '60px', margin: '0 auto 10px', borderRadius: '50%', background: 'rgba(0,0,0,0.3)', border: `2px solid ${getBorderColor(student.status)}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <i className="fa-solid fa-user" style={{ fontSize: '1.5rem', color: 'rgba(255,255,255,0.5)' }}></i>

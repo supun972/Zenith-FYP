@@ -42,6 +42,7 @@ const StudentPortal = () => {
   const [assignedSessions, setAssignedSessions] = useState([]);
   const [completedSessionIds, setCompletedSessionIds] = useState([]);
   const [activeSession, setActiveSession] = useState(null);
+  const [joinCode, setJoinCode] = useState('');
 
   // Time Selector Modal State
   const [showTimeModal, setShowTimeModal] = useState(false);
@@ -140,6 +141,22 @@ const StudentPortal = () => {
     };
     syncFocus();
   }, [focusScore, user]);
+
+  const handleJoinLiveClass = async () => {
+    if (!joinCode.trim()) return;
+    try {
+      await updateDoc(doc(db, 'users', user.uid), {
+        activeClassCode: joinCode,
+        focus: 100
+      });
+      setFocusScore(100);
+      toast.success(`Joined class ${joinCode} successfully!`);
+      setJoinCode('');
+    } catch (err) {
+      console.error(err);
+      toast.error('Failed to join class.');
+    }
+  };
 
   // Alternative Anti-Cheat Mechanisms (Blur/Focus)
   useEffect(() => {
@@ -962,6 +979,21 @@ const StudentPortal = () => {
           </h2>
 
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '12px' }}>
+            {/* Class Join Section */}
+            <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+               <h3 style={{ fontSize: '1.1rem', marginBottom: '10px' }}>Join a Live Class</h3>
+               <div style={{ display: 'flex', gap: '10px' }}>
+                 <input 
+                   type="text" 
+                   placeholder="Enter Class Code" 
+                   value={joinCode}
+                   onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
+                   style={{ flex: 1, padding: '10px', borderRadius: '8px', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', outline: 'none' }}
+                 />
+                 <button className="btn btn-secondary" onClick={handleJoinLiveClass} style={{ padding: '10px 20px' }}>Join</button>
+               </div>
+            </div>
+
             {availableClasses.length > 0 ? (
               availableClasses.map((cls) => (
                 <div key={cls.id} style={{ display: 'flex', gap: '15px', marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
